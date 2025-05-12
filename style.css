@@ -4,4 +4,6 @@ body {
 
 h1 {
   color: red;
+  border-radius: 30px;
+  border: 2px solid Tomato;
 }
