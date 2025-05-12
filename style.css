@@ -297,3 +297,41 @@ footer {
   margin: 0.25rem 0;
   white-space: nowrap;
 }
+
+.detail-container {
+  padding: 4rem 2rem;
+  background-color: #1a1f1e;
+  color: #e0e0dc;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.detail-article {
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+.detail-date {
+  display: block;
+  font-size: 0.9rem;
+  color: #9aa899;
+  margin-bottom: 0.5rem;
+}
+
+.detail-article h1 {
+  font-size: 2.2rem;
+  color: #f0e6d2;
+  margin-bottom: 0.5rem;
+}
+
+.detail-subhead {
+  font-size: 1.1rem;
+  color: #bfae94;
+  margin-bottom: 1.5rem;
+}
+
+.detail-body p {
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  color: #ccc5b9;
+  line-height: 1.6;
+}
