@@ -231,6 +231,7 @@ footer {
   margin-top: 0.5rem;
   color: #a7cdbd;
   font-family: "Monaco", monospace;
+  font-size: 10px;
   text-decoration: none;
   font-weight: 500;
 }
