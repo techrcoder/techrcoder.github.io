@@ -1,4 +1,4 @@
-body {
+/* body {
   font-family: 'Poppins', sans-serif;
 }
 
@@ -7,4 +7,163 @@ h1 {
   padding: 10px;
   border-radius: 30px;
   border: 2px solid Tomato;
+} */
+
+/* Reset & base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #1a1f1e;
+  color: #e0e0dc;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem 2rem;
+  background-color: #0f1412;
+  border-bottom: 1px solid #2c2f2d;
+}
+
+.logo {
+  background-color: #304232;
+  padding: 0.4em 1em;
+  border-radius: 10px;
+  font-weight: bold;
+  color: #fffbe7;
+  font-size: 1.2em;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+nav a {
+  color: #bfae94;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: #d4af7f;
+}
+
+/* Hero */
+.hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem 2rem;
+  animation: fadeIn 1.2s ease-in-out;
+}
+
+.hero-content {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  max-width: 900px;
+  flex-wrap: wrap;
+}
+
+.profile-img {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #3a4b40;
+}
+
+.hero-content h1 {
+  font-size: 2.5rem;
+  color: #f5f2eb;
+}
+
+.hero-content p {
+  font-size: 1.1rem;
+  max-width: 500px;
+  color: #c3bfae;
+}
+
+/* Links section */
+.links {
+  text-align: center;
+  padding: 3rem 1rem;
+  background-color: #232723;
+}
+
+.links h2 {
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+  color: #f0e6d2;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.social-links a {
+  color: #c9b79d;
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: all 0.3s;
+}
+
+.social-links a:hover {
+  color: #ffffff;
+}
+
+/* Contact section */
+#contact {
+  padding: 3rem 2rem;
+  background-color: #1c1e1c;
+  text-align: center;
+}
+
+#contact h2 {
+  margin-bottom: 1rem;
+  color: #f5f2eb;
+}
+
+#contact a {
+  color: #a7cdbd;
+  text-decoration: none;
+}
+
+#contact a:hover {
+  text-decoration: underline;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #0f1412;
+  color: #7e857a;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
