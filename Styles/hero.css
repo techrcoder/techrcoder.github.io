@@ -1,0 +1,35 @@
+/* Hero */
+.hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem 2rem;
+  animation: fadeIn 1.2s ease-in-out;
+}
+
+.hero-content {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  max-width: 900px;
+  flex-wrap: wrap;
+}
+
+.profile-img {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #3a4b40;
+}
+
+.hero-content h1 {
+  font-size: 2.5rem;
+  color: #f5f2eb;
+}
+
+.hero-content p {
+  font-size: 1.1rem;
+  max-width: 500px;
+  color: #c3bfae;
+}

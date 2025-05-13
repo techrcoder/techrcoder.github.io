@@ -1,0 +1,59 @@
+/* CSS for the now section of the website */
+/* This section showcases the latest updates or projects */
+
+.now-section {
+  background-color: #181b18;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.now-section h2 {
+  font-size: 2.4rem;
+  color: #e6ddca;
+  margin-bottom: 3rem;
+}
+
+.now-entry {
+  max-width: 900px;
+  margin: 2rem auto;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.now-entry.right {
+  justify-content: flex-end;
+}
+
+.entry-content {
+  background-color: #232723;
+  border-radius: 10px;
+  padding: 2rem;
+  max-width: 500px;
+  color: #e0e0dc;
+  text-align: left;
+  text-decoration: none;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.entry-content:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 12px rgba(0,0,0,0.3);
+}
+
+.entry-content h3 {
+  margin-bottom: 0.5rem;
+  color: #c9b79d;
+}
+
+.entry-content p {
+  color: #bbb4a4;
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+}
+
+.entry-date {
+  font-size: 0.85rem;
+  color: #9aa899;
+  /* font-style: italic; */
+  padding-bottom: 4px;
+}

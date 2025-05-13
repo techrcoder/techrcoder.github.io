@@ -1,0 +1,30 @@
+/* Links section */
+.links {
+  text-align: center;
+  padding: 3rem 1rem;
+  background-color: #232723;
+}
+
+.links h2 {
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+  color: #f0e6d2;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.social-links a {
+  color: #c9b79d;
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: all 0.3s;
+}
+
+.social-links a:hover {
+  color: #ffffff;
+}
