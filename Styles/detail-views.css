@@ -35,3 +35,24 @@
   color: #ccc5b9;
   line-height: 1.6;
 }
+
+/* Style for images in detail views */
+.detail-image {
+  border-radius: 30px;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 1rem auto;
+}
+
+ .detail-tagsArea {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+
+/* .detail-tagsArea {
+  padding-bottom: 2rem;
+} */

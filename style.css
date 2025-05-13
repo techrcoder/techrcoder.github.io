@@ -55,4 +55,8 @@ footer {
   white-space: nowrap;
 }
 
+a.logo {
+  text-decoration: none;
+}
+
 
