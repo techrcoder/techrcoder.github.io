@@ -11,10 +11,18 @@
 }
 
 .detail-date {
-  display: block;
-  font-size: 0.9rem;
-  color: #9aa899;
-  margin-bottom: 0.5rem;
+  display: inline-block;
+  padding: 0.3em 0.9em;
+  font-size: 0.7rem;
+  font-weight: 500;
+  background-color: rgba(58, 90, 58, 0.1); /* Lighter green with transparency */
+  color: #d4f5d4; /* Brighter text color */
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0.25rem 0;
+  white-space: nowrap;
+  border: 1.2px dashed #d4f5d4; /* Dashed stroke */
 }
 
 .detail-article h1 {
