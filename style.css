@@ -6,6 +6,7 @@
 @import "Styles/now.css";
 @import "Styles/detail-views.css";
 @import "Styles/photography.css";
+@import "Styles/feed.css";
 
 * {
   margin: 0;
