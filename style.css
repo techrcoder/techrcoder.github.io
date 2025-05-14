@@ -42,9 +42,11 @@ footer {
   }
 }
 
-/* Tag Style Item */
+/* Tag Style Item 
 .tag {
-  display: inline-block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 0.3em 0.9em;
   font-size: 0.75rem;
   font-weight: 500;
@@ -55,10 +57,32 @@ footer {
   letter-spacing: 0.05em;
   margin: 0.25rem 0;
   white-space: nowrap;
+  height: 2.2em;
+  min-width: 2.2em;
 }
+*/
 
 a.logo {
   text-decoration: none;
 }
 
+/* Tag Style Item */
+.tag {
+  display: inline-block;
+  /* padding: 0.3em 0.9em; */
+  padding: 0.4em 0.9em 0.3em 0.9em;
+  font-size: 0.75rem;
+  font-weight: 500;
+  background-color: #2d3b2f;
+  color: #c1e1c1;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0.25rem 0;  
+  white-space: nowrap;
+  align-items: center;
 
+  text-decoration: none;
+  text-decoration-thickness: -2px;
+}
+/* */
