@@ -7,6 +7,13 @@
   animation: fadeIn 1.2s ease-in-out;
 }
 
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: #0f1412;
+}
+
 .hero-content {
   display: flex;
   align-items: center;
@@ -16,9 +23,9 @@
 }
 
 .profile-img {
-  width: 160px;
-  height: 160px;
-  border-radius: 50%;
+  width: 225px;
+  height: 225px;
+  border-radius: 30%;
   object-fit: cover;
   border: 3px solid #3a4b40;
 }
