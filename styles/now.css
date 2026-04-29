@@ -1,67 +1,150 @@
-/* CSS for the now section of the website */
-/* This section showcases the latest updates or projects */
+/* Now section — modular 3-card grid, bright editorial */
 
 .now-section {
-  background-color: #181b18;
-  padding: 4rem 2rem;
-  text-align: center;
+  background: var(--bg);
+  padding: var(--space-8) var(--space-6) var(--space-9);
+  border-top: 1px solid var(--border);
 }
 
-.now-section h2 {
-  font-size: 2.4rem;
-  color: #e6ddca;
-  margin-bottom: 3rem;
+.now-inner {
+  max-width: var(--container-wide);
+  margin: 0 auto;
 }
 
-.now-entry {
-  max-width: 900px;
-  margin: 2rem auto;
+.now-header {
   display: flex;
-  justify-content: flex-start;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  margin-bottom: var(--space-6);
 }
 
-.now-entry.right {
-  justify-content: flex-end;
+.now-header h2 {
+  font-size: var(--fs-h2);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--text);
 }
 
-.entry-content {
-  background-color: #232723;
-  border-radius: 10px;
-  padding: 2rem;
-  max-width: 500px;
-  color: #e0e0dc;
-  text-align: left;
-  text-decoration: none;
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.entry-content:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 0 12px rgba(0,0,0,0.3);
-}
-
-.entry-content h3 {
-  margin-bottom: 0.5rem;
-  color: #c9b79d;
-}
-
-.entry-content p {
-  color: #bbb4a4;
-  font-size: 0.95rem;
-  margin-bottom: 0.5rem;
-}
-
-.entry-date {
-  display: inline-block;
-  padding: 0.36em 0.9em 0.24em 0.9em;
-  font-size: 0.7rem;
-  font-weight: 500;
-  background-color: rgba(58, 90, 58, 0.1); /* Lighter green with transparency */
-  color: #d4f5d4; /* Brighter text color */
-  border-radius: 999px;
+.now-header .now-eyebrow {
+  font-size: var(--fs-meta);
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  margin: 0.25rem 0;
-  white-space: nowrap;
-  border: 1.2px dashed #d4f5d4; /* Dashed stroke */
+  letter-spacing: 0.14em;
+  color: var(--text-faint);
+  font-weight: 500;
+}
+
+.now-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-5);
+}
+
+.now-card {
+  position: relative;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: var(--space-6);
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  min-height: 260px;
+  transition: transform var(--dur-med) var(--ease),
+              box-shadow var(--dur-med) var(--ease),
+              border-color var(--dur-med) var(--ease);
+  box-shadow: var(--shadow-sm);
+}
+
+a.now-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--border-strong);
+}
+
+.now-card-eyebrow {
+  font-size: var(--fs-meta);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--accent);
+  font-weight: 600;
+  margin-bottom: var(--space-1);
+}
+
+.now-card h3 {
+  font-size: 1.35rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--text);
+  line-height: 1.2;
+  margin: 0;
+}
+
+.now-card p {
+  color: var(--text-muted);
+  font-size: 0.93rem;
+  line-height: 1.55;
+  margin: 0;
+}
+
+.now-card-footer {
+  margin-top: auto;
+  padding-top: var(--space-4);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.now-card-date {
+  font-size: var(--fs-meta);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text-faint);
+  font-weight: 500;
+}
+
+.now-card-arrow {
+  width: 28px;
+  height: 28px;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  transition: background-color var(--dur-fast) var(--ease),
+              color var(--dur-fast) var(--ease),
+              border-color var(--dur-fast) var(--ease);
+}
+
+a.now-card:hover .now-card-arrow {
+  background: var(--accent);
+  color: var(--accent-text);
+  border-color: var(--accent);
+}
+
+.now-card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+@media (max-width: 960px) {
+  .now-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .now-grid {
+    grid-template-columns: 1fr;
+  }
+  .now-card {
+    min-height: auto;
+  }
 }

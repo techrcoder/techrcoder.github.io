@@ -1,122 +1,150 @@
-/* Experience page styles */
+/* Experience page — recruiter-friendly stacked timeline */
 
 .experience-section {
-  padding: 4rem 2rem;
-  background-color: #1a1f1e;
-  color: #e0e0dc;
-  max-width: 900px;
+  padding: var(--space-8) var(--space-6) var(--space-9);
+  max-width: var(--container);
   margin: 0 auto;
-  animation: fadeIn 1.2s ease-in-out;
+  animation: fadeIn 600ms var(--ease) both;
+}
+
+.experience-header {
+  margin-bottom: var(--space-7);
+  text-align: left;
 }
 
 .experience-section h1 {
-  font-size: 2.4rem;
-  color: #e6ddca;
-  margin-bottom: 0.5rem;
-  text-align: center;
+  font-size: var(--fs-h1);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  margin-bottom: var(--space-2);
 }
 
 .experience-intro {
-  color: #bbb4a4;
+  color: var(--text-muted);
   font-size: 1rem;
-  text-align: center;
-  margin-bottom: 3rem;
+  max-width: 56ch;
+  margin: 0;
 }
 
 .experience-section h2 {
-  font-size: 1.5rem;
-  color: #c9b79d;
-  margin: 2.5rem 0 1.25rem 0;
-  padding-bottom: 0.5rem;
-  border-bottom: 1px dashed #3a4b40;
+  font-size: var(--fs-meta);
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--text-faint);
+  font-weight: 600;
+  margin: var(--space-7) 0 var(--space-4) 0;
+  padding-bottom: var(--space-2);
+  border-bottom: 1px solid var(--border);
 }
 
 .experience-list {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: var(--space-3);
 }
 
 .experience-item {
-  background-color: #232723;
-  border-radius: 10px;
-  padding: 1.5rem;
+  display: block;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: var(--space-5) var(--space-6);
   text-decoration: none;
   color: inherit;
-  display: block;
-  transition: transform 0.3s, box-shadow 0.3s;
-  border-left: 3px solid #3a4b40;
+  transition: transform var(--dur-med) var(--ease),
+              box-shadow var(--dur-med) var(--ease),
+              border-color var(--dur-med) var(--ease);
+  box-shadow: var(--shadow-sm);
 }
 
 a.experience-item:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
-  border-left-color: #c9b79d;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--border-strong);
 }
 
-.experience-header {
+.experience-row {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
   flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-bottom: 0.5rem;
+  gap: var(--space-3);
+  margin-bottom: var(--space-2);
 }
 
 .experience-item h3 {
-  color: #e6ddca;
-  font-size: 1.15rem;
+  color: var(--text);
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: -0.005em;
   margin: 0;
 }
 
 .experience-org {
-  color: #bbb4a4;
-  font-size: 0.95rem;
-  margin: 0.15rem 0 0.6rem 0;
+  color: var(--text-muted);
+  font-size: var(--fs-small);
+  font-weight: 500;
+  margin: 0 0 var(--space-3) 0;
 }
 
 .experience-date {
-  color: #d4f5d4;
-  font-size: 0.8rem;
-  letter-spacing: 0.04em;
+  color: var(--text-faint);
+  font-size: var(--fs-meta);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
   white-space: nowrap;
 }
 
 .experience-item p {
-  color: #ccc5b9;
+  color: var(--text-muted);
   font-size: 0.95rem;
-  margin: 0.5rem 0 0.75rem 0;
-  line-height: 1.55;
+  margin: 0 0 var(--space-3) 0;
+  line-height: 1.6;
 }
 
 .experience-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.4rem;
-  margin-top: 0.5rem;
+  gap: var(--space-2);
 }
 
 .skills-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1rem;
+  gap: var(--space-4);
 }
 
 .skills-card {
-  background-color: #232723;
-  border-radius: 10px;
-  padding: 1.25rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: var(--space-5);
+  box-shadow: var(--shadow-sm);
 }
 
 .skills-card h4 {
-  color: #c9b79d;
-  font-size: 1rem;
-  margin: 0 0 0.5rem 0;
+  color: var(--text);
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin: 0 0 var(--space-2) 0;
 }
 
 .skills-card p {
-  color: #ccc5b9;
+  color: var(--text-muted);
   font-size: 0.9rem;
-  line-height: 1.5;
+  line-height: 1.55;
   margin: 0;
+}
+
+@media (max-width: 720px) {
+  .experience-section {
+    padding: var(--space-7) var(--space-5);
+  }
+  .experience-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-1);
+  }
 }

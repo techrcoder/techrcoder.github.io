@@ -1,0 +1,276 @@
+/* Shared components: buttons, tags, dates, cards, dividers */
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: 0.65rem 1.15rem;
+  border-radius: var(--radius-pill);
+  font-size: var(--fs-small);
+  font-weight: 500;
+  letter-spacing: 0.005em;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: background-color var(--dur-fast) var(--ease),
+              color var(--dur-fast) var(--ease),
+              border-color var(--dur-fast) var(--ease),
+              transform var(--dur-fast) var(--ease);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: var(--accent-text);
+  border-color: var(--accent);
+}
+
+.btn-primary:hover {
+  background: var(--accent-hover);
+  border-color: var(--accent-hover);
+  color: var(--accent-text);
+}
+
+.btn-secondary {
+  background: var(--surface);
+  color: var(--text);
+  border-color: var(--border-strong);
+}
+
+.btn-secondary:hover {
+  border-color: var(--text);
+  color: var(--text);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--text);
+  border-color: transparent;
+}
+
+.btn-ghost:hover {
+  color: var(--accent);
+}
+
+/* Tags / pills — small, restrained, neutral */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.28em 0.65em;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  background: var(--surface-2);
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+  white-space: nowrap;
+  text-decoration: none;
+  margin: 0;
+  transition: background-color var(--dur-fast) var(--ease),
+              color var(--dur-fast) var(--ease),
+              border-color var(--dur-fast) var(--ease);
+}
+
+.tag:hover {
+  color: var(--text);
+}
+
+.tag-accent {
+  background: var(--accent-soft);
+  color: var(--accent-hover);
+  border-color: transparent;
+}
+
+.tag-link {
+  cursor: pointer;
+}
+
+.tag-link:hover {
+  background: var(--surface-3);
+  color: var(--text);
+}
+
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+/* Date / metadata label */
+.date {
+  display: inline-block;
+  font-size: var(--fs-meta);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text-faint);
+  margin: 0;
+}
+
+.date-accent {
+  color: var(--accent);
+}
+
+/* Card surface */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: var(--space-6);
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--dur-med) var(--ease),
+              box-shadow var(--dur-med) var(--ease),
+              border-color var(--dur-med) var(--ease);
+}
+
+a.card, .card-link {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--border-strong);
+}
+
+/* Eyebrow / kicker label */
+.eyebrow {
+  font-size: var(--fs-meta);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--text-faint);
+}
+
+/* Hairline divider */
+.divider {
+  border: 0;
+  border-top: 1px solid var(--border);
+  margin: var(--space-7) 0;
+}
+
+/* Callout — promotional / download / access card */
+.callout {
+  display: flex;
+  align-items: center;
+  gap: var(--space-5);
+  padding: var(--space-4) var(--space-5);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  color: inherit;
+  margin: var(--space-5) 0;
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--dur-med) var(--ease),
+              box-shadow var(--dur-med) var(--ease),
+              border-color var(--dur-med) var(--ease);
+}
+
+.callout:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--border-strong);
+}
+
+.callout-icon {
+  flex-shrink: 0;
+  width: 72px;
+  height: 72px;
+  border-radius: var(--radius-md);
+  object-fit: cover;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+}
+
+.callout-body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  min-width: 0;
+}
+
+.callout-body h3 {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text);
+  margin: 0;
+  letter-spacing: -0.005em;
+}
+
+.callout-body p {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin: 0;
+  line-height: 1.5;
+  font-family: var(--font-sans);
+}
+
+.callout-arrow {
+  margin-left: auto;
+  color: var(--accent);
+  font-size: 1.1rem;
+  flex-shrink: 0;
+  transition: transform var(--dur-fast) var(--ease);
+}
+
+.callout:hover .callout-arrow {
+  transform: translateX(2px);
+  color: var(--accent-hover);
+}
+
+@media (max-width: 540px) {
+  .callout {
+    gap: var(--space-3);
+    padding: var(--space-3) var(--space-4);
+  }
+  .callout-icon {
+    width: 56px;
+    height: 56px;
+  }
+}
+
+/* Related-link mini card (used in detail views to link out to journal entries) */
+.related-link {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-4) var(--space-5);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  color: inherit;
+  margin: var(--space-3) 0;
+  transition: transform var(--dur-med) var(--ease),
+              box-shadow var(--dur-med) var(--ease),
+              border-color var(--dur-med) var(--ease);
+}
+
+.related-link:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--border-strong);
+}
+
+.related-link h4 {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text);
+  margin: 0;
+}
+
+.related-link p {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin: 0;
+  line-height: 1.5;
+}

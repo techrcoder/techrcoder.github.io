@@ -1,42 +1,93 @@
-/* Hero */
+/* Hero — bright editorial two-column composition */
+
 .hero {
+  padding: var(--space-9) var(--space-6) var(--space-7);
+  animation: fadeIn 700ms var(--ease) both;
+}
+
+.hero-grid {
+  max-width: var(--container-wide);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: var(--space-8);
+  align-items: center;
+}
+
+.hero-copy {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.hero-copy h1 {
+  font-size: var(--fs-hero);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.05;
+  color: var(--text);
+  margin: 0;
+}
+
+.hero-tagline {
+  font-size: 1.05rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  letter-spacing: 0.005em;
+  margin: 0;
+}
+
+.hero-tagline .sep {
+  color: var(--text-faint);
+  margin: 0 0.55em;
+}
+
+.hero-lead {
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--text-muted);
+  max-width: 52ch;
+  margin: 0;
+}
+
+.hero-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-top: var(--space-2);
+}
+
+.hero-portrait {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 4rem 2rem;
-  animation: fadeIn 1.2s ease-in-out;
 }
 
-header {
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  background-color: #0f1412;
-}
-
-.hero-content {
-  display: flex;
-  align-items: center;
-  gap: 2rem;
-  max-width: 900px;
-  flex-wrap: wrap;
-}
-
-.profile-img {
-  width: 225px;
-  height: 225px;
-  border-radius: 30%;
+.hero-portrait img {
+  width: 100%;
+  max-width: 360px;
+  aspect-ratio: 1 / 1.05;
   object-fit: cover;
-  border: 3px solid #3a4b40;
+  border-radius: 50% / 45%;
+  background: var(--accent-soft);
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border);
 }
 
-.hero-content h1 {
-  font-size: 2.5rem;
-  color: #f5f2eb;
-}
-
-.hero-content p {
-  font-size: 1.1rem;
-  max-width: 500px;
-  color: #c3bfae;
+@media (max-width: 860px) {
+  .hero {
+    padding: var(--space-7) var(--space-5) var(--space-6);
+  }
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+    text-align: left;
+  }
+  .hero-portrait {
+    order: -1;
+    justify-content: flex-start;
+  }
+  .hero-portrait img {
+    max-width: 200px;
+  }
 }
