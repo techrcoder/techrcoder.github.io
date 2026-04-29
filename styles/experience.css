@@ -1,0 +1,122 @@
+/* Experience page styles */
+
+.experience-section {
+  padding: 4rem 2rem;
+  background-color: #1a1f1e;
+  color: #e0e0dc;
+  max-width: 900px;
+  margin: 0 auto;
+  animation: fadeIn 1.2s ease-in-out;
+}
+
+.experience-section h1 {
+  font-size: 2.4rem;
+  color: #e6ddca;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.experience-intro {
+  color: #bbb4a4;
+  font-size: 1rem;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.experience-section h2 {
+  font-size: 1.5rem;
+  color: #c9b79d;
+  margin: 2.5rem 0 1.25rem 0;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px dashed #3a4b40;
+}
+
+.experience-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.experience-item {
+  background-color: #232723;
+  border-radius: 10px;
+  padding: 1.5rem;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  transition: transform 0.3s, box-shadow 0.3s;
+  border-left: 3px solid #3a4b40;
+}
+
+a.experience-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+  border-left-color: #c9b79d;
+}
+
+.experience-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.experience-item h3 {
+  color: #e6ddca;
+  font-size: 1.15rem;
+  margin: 0;
+}
+
+.experience-org {
+  color: #bbb4a4;
+  font-size: 0.95rem;
+  margin: 0.15rem 0 0.6rem 0;
+}
+
+.experience-date {
+  color: #d4f5d4;
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+.experience-item p {
+  color: #ccc5b9;
+  font-size: 0.95rem;
+  margin: 0.5rem 0 0.75rem 0;
+  line-height: 1.55;
+}
+
+.experience-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.5rem;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.skills-card {
+  background-color: #232723;
+  border-radius: 10px;
+  padding: 1.25rem;
+}
+
+.skills-card h4 {
+  color: #c9b79d;
+  font-size: 1rem;
+  margin: 0 0 0.5rem 0;
+}
+
+.skills-card p {
+  color: #ccc5b9;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin: 0;
+}

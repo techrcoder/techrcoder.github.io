@@ -1,12 +1,13 @@
-@import "Styles/nav-bar.css";
-@import "Styles/hero.css";
-@import "Styles/links.css";
-@import "Styles/contact.css";
-@import "Styles/projects.css";
-@import "Styles/now.css";
-@import "Styles/detail-views.css";
-@import "Styles/photography.css";
-@import "Styles/feed.css";
+@import "styles/nav-bar.css";
+@import "styles/hero.css";
+@import "styles/links.css";
+@import "styles/contact.css";
+@import "styles/projects.css";
+@import "styles/now.css";
+@import "styles/detail-views.css";
+@import "styles/photography.css";
+@import "styles/feed.css";
+@import "styles/experience.css";
 
 * {
   margin: 0;
