@@ -1,84 +1,106 @@
-/* Top navigation — slim, sticky, separated by hairline */
+/* ============================================================
+   NAV BAR — sticky, blurred, mono links, serif monogram
+   HTML pattern (root pages; prefix ../ from subdirectories):
+   <header class="site-nav">
+     <div class="nav-inner container-wide">
+       <a href="index.html" class="logo">R<span>.</span>P<span>.</span></a>
+       <nav aria-label="Primary">
+         <ul>
+           <li><a href="index.html" class="active">Home</a></li>
+           ...
+         </ul>
+       </nav>
+     </div>
+   </header>
+   ============================================================ */
 
-header {
+.site-nav {
   position: sticky;
   top: 0;
-  z-index: 50;
-  background: rgba(247, 247, 242, 0.85);
-  backdrop-filter: saturate(160%) blur(10px);
-  -webkit-backdrop-filter: saturate(160%) blur(10px);
-  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  background: rgba(6, 8, 9, 0.82);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--hairline);
+}
+
+.nav-inner {
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  align-items: center;
-  padding: 0.85rem var(--space-6);
+  padding-block: 0.9rem;
 }
 
-.logo,
-a.logo {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--text);
-  color: var(--bg);
-  padding: 0.35em 0.7em;
-  border-radius: var(--radius-sm);
-  font-weight: 600;
-  font-size: 0.95rem;
+.logo {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 700;
+  font-size: 1.35rem;
+  color: var(--paper);
   letter-spacing: 0.02em;
-  text-decoration: none;
-  transition: background-color var(--dur-fast) var(--ease);
-}
-
-a.logo:hover {
-  background: var(--accent);
-  color: var(--accent-text);
-}
-
-nav ul {
-  display: flex;
-  gap: var(--space-6);
-  align-items: center;
-}
-
-nav a {
-  position: relative;
-  color: var(--text-muted);
-  font-size: var(--fs-small);
-  font-weight: 500;
-  text-decoration: none;
-  padding: 0.35em 0;
   transition: color var(--dur-fast) var(--ease);
 }
 
-nav a:hover {
-  color: var(--text);
+.logo span { color: var(--green); }
+
+.logo:hover { color: var(--green); }
+
+.site-nav nav ul {
+  display: flex;
+  gap: clamp(0.9rem, 2.6vw, 2.2rem);
+  align-items: center;
 }
 
-nav a b {
-  font-weight: 600;
-  color: var(--text);
+.site-nav nav a {
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.13em;
+  color: var(--paper-dim);
+  padding-block: 0.35rem;
+  position: relative;
+  transition: color var(--dur-fast) var(--ease);
 }
 
-nav a b::after {
+.site-nav nav a::after {
   content: "";
   position: absolute;
   left: 0;
-  right: 0;
-  bottom: -2px;
-  height: 1.5px;
-  background: var(--accent);
-  border-radius: 2px;
+  right: 100%;
+  bottom: 0;
+  height: 1px;
+  background: var(--green);
+  transition: right var(--dur-med) var(--ease);
 }
 
-@media (max-width: 720px) {
-  header {
-    padding: 0.7rem var(--space-5);
-  }
-  nav ul {
+.site-nav nav a:hover {
+  color: var(--paper);
+}
+
+.site-nav nav a:hover::after {
+  right: 0;
+}
+
+.site-nav nav a.active {
+  color: var(--green);
+}
+
+.site-nav nav a.active::after {
+  right: 0;
+}
+
+/* mobile: wrap links onto a second line — nothing hidden, no scroll needed */
+@media (max-width: 640px) {
+  .nav-inner {
     gap: var(--space-4);
+    align-items: flex-start;
   }
-  nav a {
-    font-size: 0.8rem;
+
+  .site-nav nav ul {
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    column-gap: 1.1rem;
+    row-gap: 0.2rem;
   }
 }

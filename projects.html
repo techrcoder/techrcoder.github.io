@@ -1,56 +1,250 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Projects — Rohan Patel</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects · Rohan Patel</title>
+  <meta name="description"
+    content="The Lab: Rohan Patel's projects, where the AI and builder side shows. Assisty, Read-Rack, this website, and a few research and engineering experiments." />
+  <link rel="canonical" href="https://techrcoder.github.io/projects.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Projects · Rohan Patel" />
+  <meta property="og:description" content="The Lab: Rohan Patel's projects, where the AI and builder side shows. Assisty, Read-Rack, this website, and a few research and engineering experiments." />
+  <meta property="og:url" content="https://techrcoder.github.io/projects.html" />
+  <meta property="og:image" content="https://techrcoder.github.io/assets/images/rohan_Headshot4.jpg" />
+  <meta property="og:site_name" content="Rohan Patel" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Projects · Rohan Patel" />
+  <meta name="twitter:description" content="The Lab: Rohan Patel's projects, where the AI and builder side shows. Assisty, Read-Rack, this website, and a few research and engineering experiments." />
+  <meta name="twitter:image" content="https://techrcoder.github.io/assets/images/rohan_Headshot4.jpg" />
+  <link rel="icon"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23060809'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-style='italic' font-size='36' fill='%2334d399' text-anchor='middle'%3ER%3C/text%3E%3C/svg%3E" />
   <link rel="stylesheet" type="text/css" href="style.css" />
+  <script defer src="assets/js/site.js"></script>
 </head>
+
 <body>
-  <header>
-    <div class="logo">R.P.</div>
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="experience.html">Experience</a></li>
-        <li><a href="projects.html"><b>Projects</b></a></li>
-        <li><a href="photography.html">Photography</a></li>
-        <li><a href="journal.html">Journal</a></li>
-      </ul>
-    </nav>
+
+  <!-- ═══════════════ TICKER ═══════════════ -->
+  <div class="ticker" aria-label="Career highlights ticker">
+    <div class="ticker-track">
+      <span class="ticker-item">Capstone Investment Advisors · Summer Analyst · NYC <i class="up">▲</i></span>
+      <span class="ticker-item">USC Marshall × Viterbi · B.S. AI for Business</span>
+      <span class="ticker-item">Trojan Venture Partners · Executive Board</span>
+      <span class="ticker-item">Assisty · Full Release Winter 2026 <i class="up">▲</i></span>
+      <span class="ticker-item">Bank of Ireland · IB Summer Analyst · Paris '23 · '25</span>
+      <span class="ticker-item">Altheros Capital · Private Equity Intern · LA '25</span>
+      <span class="ticker-item">Read-Rack · Idea → App Store in 8 Days <i class="up">▲</i></span>
+      <span class="ticker-item">Trojan Investing Society · Leaders Program</span>
+      <span class="ticker-item">Eagle Scout · Troop 112 Paris</span>
+      <span class="ticker-item">EN / FR / ES / GU</span>
+    </div>
+  </div>
+
+  <!-- ═══════════════ NAV ═══════════════ -->
+  <header class="site-nav">
+    <div class="nav-inner container-wide">
+      <a href="index.html" class="logo">R<span>.</span>P<span>.</span></a>
+      <nav aria-label="Primary">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="experience.html">Experience</a></li>
+          <li><a href="projects.html" class="active">Projects</a></li>
+          <li><a href="photography.html">Photography</a></li>
+          <li><a href="journal.html">Journal</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
-  <main class="projects-section">
-    <h1>Projects</h1>
-    <p class="projects-lead">Things I've built at the intersection of AI, design, and utility — from shipped iOS apps to vibe-coded experiments.</p>
+  <main>
 
-    <div class="projects-grid">
-
-      <a href="detail-views/assisty.html" class="project-card">
-        <img src="assets/images/AssistyIcon.png" alt="Assisty app icon" class="project-img" />
-        <h2>Assisty</h2>
-        <p>An ML-powered organization tool for iPhone, iPad, and Mac. Beta launched Q2 2024; public release set for early 2026. Helps students visually plan their day with self-correcting habit models.</p>
-        <span class="project-link">See more</span>
-      </a>
-
-      <a href="detail-views/read-rack.html" class="project-card">
-        <img src="assets/images/ReadRack-ss.jpg" alt="Read-Rack screenshot" class="project-img" />
-        <h2>Read-Rack</h2>
-        <p>An entirely vibe-coded iOS app built with ChatGPT &amp; Cursor between May 3rd and May 11th, 2025. Reading list and progress tracker, shipped to the App Store in a week.</p>
-        <span class="project-link">See more</span>
-      </a>
-
-      <div class="project-card">
-        <img src="assets/images/ThisWebsite-ss.png" alt="This website screenshot" class="project-img" />
-        <h2>This Website</h2>
-        <p>Designed and built by hand. Iterations are prompt-tested and refined; the design system, content rules, and journal architecture all evolve together.</p>
-      </div>
-
+    <!-- ═══════════════ PAGE HEAD ═══════════════ -->
+    <div class="container">
+      <header class="page-head reveal">
+        <p class="mono-label">03 / The Lab</p>
+        <h1>Projects</h1>
+        <p class="page-lead">
+          Things built at the intersection of <em>AI</em>, design, and utility: a shipped iOS app
+          that learns your habits, an iOS app shipped in eight days, and a few research detours
+          along the way.
+        </p>
+      </header>
     </div>
+
+    <!-- ═══════════════ FEATURED PROJECT ═══════════════ -->
+    <section class="feature-project container-wide reveal">
+      <a href="detail-views/assisty.html" class="feature-card card">
+        <div class="feature-grid">
+
+          <div class="feature-copy">
+            <div class="feature-meta-row">
+              <span class="proj-index">PRJ / 01</span>
+              <span class="proj-status proj-status--green">Beta Live</span>
+            </div>
+            <span class="feature-eyebrow">Flagship build</span>
+            <h2>Assisty</h2>
+            <p>
+              An ML-powered organization and productivity app for iPhone, iPad, and Mac. Built in
+              SwiftUI, it blends natural-language processing, regression, and self-correcting habit
+              models to learn how you actually work. 1,000 beta users since Q2 2024, an 85% cut in
+              crash rate across beta iterations, and a 12% lift in daily task completion; full
+              release set for Winter 2026.
+            </p>
+            <p class="mono-label feature-stack">Swift · Create ML · PyTorch</p>
+            <div class="feature-footer">
+              <span class="feature-date">2022–Present</span>
+              <span class="card-arrow">↗</span>
+            </div>
+          </div>
+
+          <div class="feature-visual">
+            <img width="1179" height="2556" src="assets/images/Assisty-ss.png" alt="Assisty app screenshot showing its daily planning interface" />
+            <div class="feature-visual-icon">
+              <img width="1024" height="1024" src="assets/images/AssistyIcon.png" alt="Assisty app icon" />
+            </div>
+          </div>
+
+        </div>
+      </a>
+    </section>
+
+    <!-- ═══════════════ PROJECT GRID ═══════════════ -->
+    <section class="projects-grid-section container-wide">
+      <header class="section-head reveal">
+        <span class="section-index">02</span>
+        <h2 class="section-title">Other builds</h2>
+        <span class="section-note">4 entries</span>
+      </header>
+
+      <div class="projects-grid">
+
+        <a href="detail-views/read-rack.html" class="card project-card reveal">
+          <div class="project-card-image">
+            <img loading="lazy" decoding="async" width="1284" height="2778" src="assets/images/ReadRack-ss.jpg" alt="Read-Rack app screenshot showing a reading list" />
+          </div>
+          <div class="project-card-body">
+            <div class="project-card-meta">
+              <span class="proj-index">PRJ / 02</span>
+              <span class="proj-status proj-status--green">Shipped</span>
+            </div>
+            <h3>Read-Rack</h3>
+            <p>
+              An entirely vibe-coded reading-list and progress tracker for iOS, built with ChatGPT
+              and Cursor between May 3rd and May 11th, 2025: idea to App Store in about a week.
+            </p>
+            <div class="project-card-tags">
+              <span class="tag">iOS</span>
+              <span class="tag">Vibe-Coded</span>
+            </div>
+            <div class="project-card-footer">
+              <span class="project-card-date">May 2025</span>
+              <span class="card-arrow">↗</span>
+            </div>
+          </div>
+        </a>
+
+        <div class="card project-card project-card--type reveal reveal-delay-1">
+          <div class="project-card-body">
+            <div class="project-card-meta">
+              <span class="proj-index">PRJ / 03</span>
+              <span class="proj-status proj-status--green">Live</span>
+            </div>
+            <h3>This Website</h3>
+            <p>
+              Designed and built by hand, no template. The design system, content rules, and
+              journal architecture evolve together, in this repo, in the open. You're looking at
+              the current build now.
+            </p>
+            <div class="project-card-tags">
+              <span class="tag">HTML / CSS</span>
+              <span class="tag">Design System</span>
+            </div>
+            <div class="project-card-footer">
+              <span class="project-card-date">Ongoing</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card project-card project-card--type reveal reveal-delay-2">
+          <div class="project-card-body">
+            <div class="project-card-meta">
+              <span class="proj-index">PRJ / 04</span>
+              <span class="proj-status proj-status--gold">Research</span>
+            </div>
+            <h3>CERN Beamline for Schools</h3>
+            <p>
+              Led a team of nine students on a proposal to CERN's Beamline for Schools competition,
+              studying microplastics and their electric double layers on the T9 beamline electron
+              beam.
+            </p>
+            <div class="project-card-tags">
+              <span class="tag">Physics</span>
+              <span class="tag">Team Lead</span>
+            </div>
+            <div class="project-card-footer">
+              <span class="project-card-date">Jan–Apr 2024</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card project-card project-card--type reveal reveal-delay-3">
+          <div class="project-card-body">
+            <div class="project-card-meta">
+              <span class="proj-index">PRJ / 05</span>
+              <span class="proj-status proj-status--gold">Prototype</span>
+            </div>
+            <h3>RotoPower</h3>
+            <p>
+              Built during a Duke University summer bioengineering course: an affordable
+              bike-mounted power generator with a custom dynamo compartment and an energy-storage
+              algorithm written in Python on a Raspberry Pi. Won the Most Impressive Engineering
+              Award and a Design Visionary Certificate.
+            </p>
+            <div class="project-card-tags">
+              <span class="tag">Python</span>
+              <span class="tag">Raspberry Pi</span>
+            </div>
+            <div class="project-card-footer">
+              <span class="project-card-date">Jun 2022</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ═══════════════ CTA ═══════════════ -->
+    <section class="container projects-cta reveal">
+      <p class="mono-label">Browse the code</p>
+      <h2>Most of this lives in public.</h2>
+      <p>Repos, commits, and the occasional messy branch, all on GitHub.</p>
+      <a href="https://github.com/techrcoder" target="_blank" rel="noopener" class="btn btn-secondary">GitHub ↗</a>
+    </section>
+
   </main>
 
-  <footer>
-    <p>&copy; 2025 Rohan Patel</p>
+  <!-- ═══════════════ FOOTER ═══════════════ -->
+  <footer class="site-footer">
+    <div class="container-wide">
+      <div class="footer-grid">
+        <span class="footer-name">Rohan Patel</span>
+        <div class="footer-links">
+          <a href="https://www.linkedin.com/in/rohanp1/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://github.com/techrcoder" target="_blank" rel="noopener">GitHub</a>
+          <a href="mailto:rbpatel@usc.edu">Email</a>
+        </div>
+      </div>
+      <div class="footer-colophon">
+        <p>Designed and built by hand. No template.</p>
+        <p>Los Angeles · Paris · New York</p>
+        <p>© 2026 Rohan Patel</p>
+      </div>
+      <p class="footer-tape">· · · END OF TAPE · · ·</p>
+    </div>
   </footer>
+
 </body>
+
 </html>

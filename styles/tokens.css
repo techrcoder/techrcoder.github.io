@@ -1,45 +1,58 @@
-/* Design tokens — single source of truth for the visual system */
+/* ============================================================
+   DESIGN TOKENS — "Signal & Ledger"
+   Market-terminal × editorial system.
+   Dark ink canvas, warm ivory type, market-green + gold accents.
+   Single source of truth: every module reads from here.
+   ============================================================ */
 
 :root {
-  /* Color — bright editorial-tech */
-  --bg: #f7f7f2;
-  --surface: #ffffff;
-  --surface-2: #f3f2ee;
-  --surface-3: #ecebe6;
+  /* ---- Ink scale (backgrounds, darkest → lightest) ---- */
+  --ink-0: #060809;            /* page canvas */
+  --ink-1: #0b0f12;            /* alternate section band */
+  --ink-2: #10161b;            /* card / surface */
+  --ink-3: #182029;            /* elevated / hover surface */
 
-  --text: #171717;
-  --text-muted: #4a4a4a;
-  --text-faint: #8a8a8a;
+  /* ---- Paper scale (type, warm ivory) ---- */
+  --paper: #ede6d8;            /* primary text */
+  --paper-dim: #a9a498;        /* secondary text */
+  --paper-faint: #737065;      /* meta / faint labels */
 
-  --border: #e7e5e0;
-  --border-strong: #d8d6cf;
+  /* ---- Hairlines ---- */
+  --hairline: rgba(237, 230, 216, 0.10);
+  --hairline-strong: rgba(237, 230, 216, 0.24);
 
-  --accent: #0f766e;
-  --accent-hover: #0b5e57;
-  --accent-soft: #dcefed;
-  --accent-text: #ffffff;
+  /* ---- Accents ---- */
+  --green: #34d399;            /* market green — ticks, links, live states */
+  --green-bright: #4ef0b2;     /* hover green */
+  --green-soft: rgba(52, 211, 153, 0.10);
+  --green-border: rgba(52, 211, 153, 0.35);
 
-  --warning: #b45309;
-  --warning-soft: #fef3c7;
+  --gold: #d9a441;             /* editorial gold — italic emphasis, rules */
+  --gold-soft: rgba(217, 164, 65, 0.12);
 
-  /* Typography */
-  --font-sans: "Inter", "Helvetica Neue", "Segoe UI", system-ui, -apple-system, sans-serif;
-  --font-display: "Inter", "Helvetica Neue", "Segoe UI", system-ui, -apple-system, sans-serif;
-  --font-serif: "Iowan Old Style", "Georgia", "Times New Roman", serif;
+  --red: #f87171;              /* used sparingly (down-ticks, humor) */
 
-  --fs-hero: clamp(2.6rem, 5.5vw, 4rem);
-  --fs-h1: clamp(2rem, 3.6vw, 2.6rem);
-  --fs-h2: clamp(1.4rem, 2.4vw, 1.7rem);
-  --fs-h3: 1.15rem;
-  --fs-body: 1rem;
-  --fs-small: 0.875rem;
-  --fs-meta: 0.75rem;
+  /* ---- Typography ---- */
+  --font-display: "Fraunces", "Iowan Old Style", Georgia, serif;
+  --font-sans: "Inter", "Helvetica Neue", system-ui, -apple-system, sans-serif;
+  --font-mono: "IBM Plex Mono", "SF Mono", "Menlo", monospace;
 
-  --lh-tight: 1.15;
-  --lh-snug: 1.35;
-  --lh-body: 1.6;
+  --fs-hero: clamp(2.9rem, 7.2vw, 5.9rem);
+  --fs-h1: clamp(2.3rem, 4.8vw, 3.6rem);
+  --fs-h2: clamp(1.55rem, 2.8vw, 2.1rem);
+  --fs-h3: 1.28rem;
+  --fs-body: 1.02rem;
+  --fs-small: 0.9rem;
+  --fs-meta: 0.72rem;          /* mono micro-labels, uppercase */
 
-  /* Spacing scale */
+  --lh-display: 1.04;
+  --lh-tight: 1.18;
+  --lh-snug: 1.4;
+  --lh-body: 1.72;
+
+  --tracking-mono: 0.14em;     /* uppercase mono label tracking */
+
+  /* ---- Spacing ---- */
   --space-1: 0.25rem;
   --space-2: 0.5rem;
   --space-3: 0.75rem;
@@ -47,27 +60,29 @@
   --space-5: 1.5rem;
   --space-6: 2rem;
   --space-7: 3rem;
-  --space-8: 4rem;
-  --space-9: 6rem;
+  --space-8: 4.5rem;
+  --space-9: 7rem;
 
-  /* Radius */
-  --radius-sm: 6px;
-  --radius-md: 10px;
-  --radius-lg: 14px;
-  --radius-pill: 999px;
+  /* ---- Radius (sharp, editorial) ---- */
+  --radius-sm: 3px;
+  --radius-md: 6px;
+  --radius-lg: 10px;
 
-  /* Shadows */
-  --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.04);
-  --shadow-md: 0 6px 18px rgba(15, 23, 42, 0.06);
-  --shadow-lg: 0 14px 34px rgba(15, 23, 42, 0.08);
+  /* ---- Shadows (glows on dark) ---- */
+  --shadow-card: 0 1px 0 rgba(237, 230, 216, 0.04) inset, 0 12px 40px rgba(0, 0, 0, 0.45);
+  --shadow-lift: 0 18px 50px rgba(0, 0, 0, 0.6);
+  --glow-green: 0 0 24px rgba(52, 211, 153, 0.18);
 
-  /* Layout */
-  --container-narrow: 720px;
-  --container: 960px;
-  --container-wide: 1120px;
+  /* ---- Layout ---- */
+  --container-narrow: 760px;
+  --container: 1040px;
+  --container-wide: 1240px;
+  --gutter: clamp(1.25rem, 4vw, 2.5rem);
 
-  /* Motion */
-  --ease: cubic-bezier(0.2, 0.6, 0.2, 1);
-  --dur-fast: 150ms;
-  --dur-med: 240ms;
+  /* ---- Motion ---- */
+  --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-fast: 160ms;
+  --dur-med: 320ms;
+  --dur-slow: 700ms;
 }

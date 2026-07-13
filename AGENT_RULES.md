@@ -13,8 +13,8 @@ This file governs how AI agents should handle content updates, structural change
 | Projects | `projects.html` | Software/tech project portfolio |
 | Photography | `photography.html` | Photo portfolio |
 | Journal | `journal.html` | Dated personal writing, reflections, event recaps |
-| Detail Views | `Detail-Views/*.html` | Deep-dive pages for individual projects/experiences |
-| Journal Articles | `Feed Articles/*.html` | Full journal entry pages |
+| Detail Views | `detail-views/*.html` | Deep-dive pages for individual projects/experiences |
+| Journal Articles | `journal-articles/*.html` | Full journal entry pages |
 
 **Design reference:** `DESIGN.md` — read it for the full restructure rationale before making significant changes.
 
@@ -39,7 +39,7 @@ When Rohan says something like "I started my internship at X" or "I just shipped
 
 ### Starting something new (role, internship, project, school term)
 
-1. **Add a Now entry** to `index.html` using the `now-entry` card pattern
+1. **Add a Now entry** to `index.html` using the `.card.now-card` pattern (see Now Section Rules)
 2. If it's a professional role, **add it to `experience.html`** as well
 3. If it warrants depth, **create a detail view** in `Detail-Views/`
 4. **Check if the Now section now has more than 3 entries** — if so, ask Rohan which existing entry to remove or archive
@@ -53,13 +53,13 @@ When Rohan says something like "I started my internship at X" or "I just shipped
 
 ### Shipping, launching, or reaching a milestone
 
-1. **Create a Journal entry** in `Feed Articles/` and add a card to `journal.html`
+1. **Create a Journal entry** in `journal-articles/` and add a card to `journal.html`
 2. Do NOT add this to the Now section (a launch is an event, not a state)
 3. If it's a project milestone, update the detail view if one exists
 
 ### Writing a reflection, recap, or personal note
 
-1. **Create a Journal entry** — full article in `Feed Articles/`, card in `journal.html`
+1. **Create a Journal entry** — full article in `journal-articles/`, card in `journal.html`
 2. Do NOT add to Now section
 
 ### Adding a reading, interest, or intellectual pursuit
@@ -81,10 +81,13 @@ Located in `index.html` inside `<section class="now-section">`.
 
 **Hard rules:**
 - Maximum 3 entries at any time
-- Each entry must use the `.now-entry` + `.entry-content` card pattern
-- Alternate left/right: odd entries get `now-entry left`, even entries get `now-entry right`
-- Every entry needs: `<h3>` title, `<p>` description, `<span class="entry-date">`, at least one `<span class="tag">`
-- Entries link to a detail view where one exists, otherwise `href="#"` as placeholder
+- Each entry is an `<a class="card now-card reveal">` in the 3-column `.now-grid`
+- Every entry needs: `.now-card-meta` (mono `NN / 03` index + `CURRENT` status chip), `.now-card-eyebrow`
+  (present-tense verb: Interning / Studying / Building), `<h3>` title, `<p>` description,
+  `.now-card-tags` with at least one `<span class="tag">`, and `.now-card-footer` with a mono
+  `.now-card-date` and `<span class="card-arrow">↗</span>`
+- Renumber `01 / 03 .. 03 / 03` top-to-bottom after any change; stagger with `reveal-delay-1/2`
+- Entries link to a detail view where one exists, otherwise `experience.html` or `href="#"`
 - No `"Blog Post"` or `"Personal Reflections"` tags on Now entries — those belong in Journal
 
 **Allowed tag categories for Now entries:**
@@ -95,8 +98,8 @@ Located in `index.html` inside `<section class="now-section">`.
 ## Journal Rules
 
 Journal entries live in two places:
-- `Feed Articles/[title].html` — the full article page
-- A card in `journal.html` — the `<article class="feed-article">` element in the feed list
+- `journal-articles/[title].html` — the full article page (uses the shared dossier template from `styles/detail-views.css`, breadcrumb "← THE LEDGER")
+- A row in `journal.html` — the `<article class="feed-article">` element in the ledger list
 
 **Naming convention for article files:**
 `[Month]-[Day]-[Short-Slug].html`
@@ -116,10 +119,10 @@ Examples: `Jun-15-Capstone-Start.html`, `Mar-3-Alignment-Problem.html`
 
 ## Detail View Rules
 
-Files live in `Detail-Views/`. Use this template pattern (see existing files for reference):
+Files live in `detail-views/`. Use this naming pattern (see existing files for reference):
 
 ```
-Detail-Views/detailView-[project-or-role-slug].html
+detail-views/[project-or-role-slug].html
 ```
 
 A detail view should include:
@@ -133,10 +136,11 @@ A detail view should include:
 
 ## File & Asset Conventions
 
-- Images for Journal entries: use `Photography-Assets/` for personal photos, or external URLs for logos/app icons
-- Keep image filenames lowercase with hyphens: `bank-of-ireland-paris.jpg`
-- All pages use `style.css` from the root (use `../style.css` from subdirectories)
-- Nav must be consistent across every page — update all pages when nav changes
+- Images for Journal entries: use `photography-assets/` for personal photos or `assets/images/` for app icons/screenshots — never hotlink external images
+- Keep new image filenames lowercase with hyphens: `bank-of-ireland-paris.jpg`
+- All pages use `style.css` from the root (use `../style.css` from subdirectories) and `assets/js/site.js` (`../assets/js/site.js` from subdirectories)
+- Every page carries the ticker + nav + footer identically; nav must be consistent across every page — update all pages when nav changes
+- Design tokens only — never hardcode colors; see `DESIGN.md` for the "Signal & Ledger" system
 
 ---
 
@@ -158,6 +162,9 @@ The current active page gets `<b>` wrapping its link text. All other links are p
 - Do not update the resume PDF — flag it as needed
 - Do not change the hero bio text in `index.html` to something speculative — only update with facts Rohan provides
 - Do not add emoji to page content unless Rohan uses them in his direction
+- Do not use em dashes in any user-facing text (prose: comma/colon/period; labels: `·` or `/`; ranges: en dash). See "Content Voice Rules" in DESIGN.md
+- Do not write slogan headlines or self-labels — state facts (role, firm, city, date) and let them speak. Homepage H1 is his name only
+- Do not reword journal-article prose — it is Rohan's own writing; punctuation-level fixes only
 
 ---
 

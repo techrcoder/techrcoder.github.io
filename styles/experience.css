@@ -1,150 +1,320 @@
-/* Experience page — recruiter-friendly stacked timeline */
+/* ============================================================
+   EXPERIENCE — "Track Record" page.
+   Ledger timeline for finance/professional roles, leadership
+   rows, education cards with stat chips, and a skills grid.
+   ============================================================ */
 
-.experience-section {
-  padding: var(--space-8) var(--space-6) var(--space-9);
-  max-width: var(--container);
-  margin: 0 auto;
-  animation: fadeIn 600ms var(--ease) both;
+.xp-section {
+  padding-block: var(--space-8);
 }
 
-.experience-header {
-  margin-bottom: var(--space-7);
-  text-align: left;
+.xp-section + .xp-section {
+  border-top: 1px solid var(--hairline);
 }
 
-.experience-section h1 {
-  font-size: var(--fs-h1);
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  color: var(--text);
-  margin-bottom: var(--space-2);
-}
-
-.experience-intro {
-  color: var(--text-muted);
-  font-size: 1rem;
-  max-width: 56ch;
-  margin: 0;
-}
-
-.experience-section h2 {
-  font-size: var(--fs-meta);
-  text-transform: uppercase;
-  letter-spacing: 0.16em;
-  color: var(--text-faint);
-  font-weight: 600;
-  margin: var(--space-7) 0 var(--space-4) 0;
-  padding-bottom: var(--space-2);
-  border-bottom: 1px solid var(--border);
-}
-
-.experience-list {
+/* ------------------------------------------------------------
+   LEDGER TIMELINE — Finance & Professional
+   ------------------------------------------------------------ */
+.xp-timeline {
   display: flex;
   flex-direction: column;
-  gap: var(--space-3);
+  border-top: 1px solid var(--hairline);
 }
 
-.experience-item {
+.xp-row {
+  display: grid;
+  grid-template-columns: 132px 1fr;
+  gap: var(--space-6);
+  padding: var(--space-6) var(--space-3);
+  border-bottom: 1px solid var(--hairline);
+  position: relative;
+  transition: background var(--dur-med) var(--ease), border-color var(--dur-med) var(--ease);
+}
+
+a.xp-row {
+  padding-right: var(--space-8);
+}
+
+a.xp-row:hover {
+  background: var(--ink-2);
+  border-bottom-color: var(--hairline-strong);
+}
+
+.xp-row-date {
+  font-family: var(--font-mono);
+  border-right: 1px solid var(--hairline);
+  padding-right: var(--space-5);
+}
+
+.xp-row-year {
   display: block;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-md);
-  padding: var(--space-5) var(--space-6);
-  text-decoration: none;
-  color: inherit;
-  transition: transform var(--dur-med) var(--ease),
-              box-shadow var(--dur-med) var(--ease),
-              border-color var(--dur-med) var(--ease);
-  box-shadow: var(--shadow-sm);
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--paper);
+  line-height: 1;
 }
 
-a.experience-item:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
-  border-color: var(--border-strong);
+.xp-row-range {
+  display: block;
+  font-size: var(--fs-meta);
+  letter-spacing: var(--tracking-mono);
+  text-transform: uppercase;
+  color: var(--paper-faint);
+  margin-top: var(--space-2);
 }
 
-.experience-row {
+.xp-row-loc {
+  display: block;
+  font-size: var(--fs-meta);
+  letter-spacing: var(--tracking-mono);
+  text-transform: uppercase;
+  color: var(--paper-faint);
+  margin-top: var(--space-1);
+  opacity: 0.75;
+}
+
+.xp-row-head {
   display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  flex-wrap: wrap;
+  align-items: center;
   gap: var(--space-3);
+  flex-wrap: wrap;
   margin-bottom: var(--space-2);
 }
 
-.experience-item h3 {
-  color: var(--text);
-  font-size: 1.1rem;
+.xp-row-head h3 {
+  font-size: 1.2rem;
+}
+
+.xp-status {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
   font-weight: 600;
-  letter-spacing: -0.005em;
-  margin: 0;
-}
-
-.experience-org {
-  color: var(--text-muted);
-  font-size: var(--fs-small);
-  font-weight: 500;
-  margin: 0 0 var(--space-3) 0;
-}
-
-.experience-date {
-  color: var(--text-faint);
-  font-size: var(--fs-meta);
-  font-weight: 500;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  letter-spacing: 0.12em;
-  white-space: nowrap;
+  border-radius: var(--radius-sm);
+  padding: 0.2rem 0.5rem;
+  border: 1px solid var(--hairline-strong);
+  color: var(--paper-faint);
 }
 
-.experience-item p {
-  color: var(--text-muted);
-  font-size: 0.95rem;
-  margin: 0 0 var(--space-3) 0;
-  line-height: 1.6;
+.xp-status--current {
+  color: var(--green);
+  border-color: var(--green-border);
+  background: var(--green-soft);
 }
 
-.experience-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-2);
+.xp-row-org {
+  font-family: var(--font-mono);
+  font-size: var(--fs-small);
+  letter-spacing: 0.03em;
+  color: var(--paper-dim);
+  margin-bottom: var(--space-3);
 }
 
-.skills-grid {
+.xp-row-desc {
+  color: var(--paper-dim);
+  font-size: var(--fs-small);
+  max-width: 62ch;
+}
+
+.xp-row-tags {
+  margin-top: var(--space-4);
+}
+
+.xp-row .card-arrow {
+  position: absolute;
+  right: var(--space-4);
+  top: var(--space-6);
+  font-size: 1.1rem;
+}
+
+/* ------------------------------------------------------------
+   CAMPUS LEADERSHIP — compact card row
+   ------------------------------------------------------------ */
+.xp-leadership-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-5);
+}
+
+.xp-leadership-card {
+  padding: var(--space-6) var(--space-5);
+}
+
+.xp-leadership-date {
+  display: block;
+  color: var(--green);
+  margin-bottom: var(--space-3);
+}
+
+.xp-leadership-card h3 {
+  font-size: 1.12rem;
+  margin-bottom: var(--space-2);
+}
+
+.xp-leadership-org {
+  font-family: var(--font-mono);
+  font-size: var(--fs-small);
+  color: var(--paper-dim);
+  margin-bottom: var(--space-3);
+}
+
+.xp-leadership-card p:last-child {
+  font-size: var(--fs-small);
+  color: var(--paper-dim);
+}
+
+/* ------------------------------------------------------------
+   EDUCATION — two cards, stat chips for École
+   ------------------------------------------------------------ */
+.xp-edu-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-5);
+}
+
+.xp-edu-card {
+  padding: var(--space-6) var(--space-5);
+  display: flex;
+  flex-direction: column;
+}
+
+.xp-edu-date {
+  display: block;
+  color: var(--green);
+  margin-bottom: var(--space-3);
+}
+
+.xp-edu-card h3 {
+  font-size: 1.3rem;
+  margin-bottom: var(--space-2);
+}
+
+.xp-edu-degree {
+  font-family: var(--font-mono);
+  font-size: var(--fs-small);
+  color: var(--paper-dim);
+  margin-bottom: var(--space-4);
+}
+
+.xp-edu-card p.xp-edu-blurb {
+  font-size: var(--fs-small);
+  color: var(--paper-dim);
+  flex: 1;
+}
+
+.xp-edu-stats {
+  margin-top: var(--space-5);
+  border-color: var(--hairline);
+}
+
+.xp-edu-stats .stat {
+  padding: var(--space-4) var(--space-3) 0;
+}
+
+.xp-edu-stats .stat-value {
+  font-size: 1.6rem;
+}
+
+/* ------------------------------------------------------------
+   SKILLS & TOOLKIT
+   ------------------------------------------------------------ */
+.xp-skills-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-5);
+}
+
+.xp-skill-card {
+  padding: var(--space-6) var(--space-5);
+}
+
+.xp-skill-label {
+  display: block;
+  color: var(--green);
+  margin-bottom: var(--space-3);
+}
+
+.xp-skill-card p {
+  font-size: var(--fs-small);
+  color: var(--paper-dim);
+}
+
+.xp-languages {
+  margin-top: var(--space-6);
+  padding-top: var(--space-5);
+  border-top: 1px dashed var(--hairline-strong);
+  text-align: center;
+}
+
+/* ------------------------------------------------------------
+   RESUME CTA
+   ------------------------------------------------------------ */
+.xp-cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   gap: var(--space-4);
+  flex-wrap: wrap;
+  padding-block: var(--space-7) var(--space-9);
 }
 
-.skills-card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-md);
-  padding: var(--space-5);
-  box-shadow: var(--shadow-sm);
-}
-
-.skills-card h4 {
-  color: var(--text);
-  font-size: 0.95rem;
-  font-weight: 600;
-  margin: 0 0 var(--space-2) 0;
-}
-
-.skills-card p {
-  color: var(--text-muted);
-  font-size: 0.9rem;
-  line-height: 1.55;
-  margin: 0;
-}
-
-@media (max-width: 720px) {
-  .experience-section {
-    padding: var(--space-7) var(--space-5);
+/* ------------------------------------------------------------
+   RESPONSIVE
+   ------------------------------------------------------------ */
+@media (max-width: 860px) {
+  .xp-leadership-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
-  .experience-row {
+
+  .xp-skills-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .xp-row {
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+    padding-inline: var(--space-2);
+  }
+
+  a.xp-row {
+    padding-right: var(--space-6);
+  }
+
+  .xp-row-date {
+    border-right: none;
+    padding-right: 0;
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-3);
+    border-bottom: 1px dashed var(--hairline);
+    padding-bottom: var(--space-3);
+  }
+
+  .xp-row-range,
+  .xp-row-loc {
+    margin-top: 0;
+  }
+
+  .xp-row .card-arrow {
+    top: var(--space-4);
+  }
+
+  .xp-leadership-grid,
+  .xp-skills-grid,
+  .xp-edu-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .xp-cta {
     flex-direction: column;
-    align-items: flex-start;
-    gap: var(--space-1);
+    align-items: stretch;
+  }
+
+  .xp-cta .btn {
+    justify-content: center;
   }
 }

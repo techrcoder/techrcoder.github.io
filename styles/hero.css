@@ -1,93 +1,243 @@
-/* Hero — bright editorial two-column composition */
+/* ============================================================
+   HERO — homepage masthead
+   Editorial headline + portrait "position card" + sparkline
+   ============================================================ */
 
 .hero {
-  padding: var(--space-9) var(--space-6) var(--space-7);
-  animation: fadeIn 700ms var(--ease) both;
+  position: relative;
+  overflow: hidden;
+  padding-block: clamp(3.5rem, 9vh, 6.5rem) clamp(3rem, 7vh, 5rem);
+  border-bottom: 1px solid var(--hairline);
+}
+
+/* radial glow behind the headline */
+.hero::before {
+  content: "";
+  position: absolute;
+  top: -30%;
+  left: -10%;
+  width: 70%;
+  height: 120%;
+  background: radial-gradient(ellipse at center, rgba(52, 211, 153, 0.07), transparent 65%);
+  pointer-events: none;
 }
 
 .hero-grid {
-  max-width: var(--container-wide);
-  margin: 0 auto;
+  position: relative;
   display: grid;
-  grid-template-columns: 1.4fr 1fr;
-  gap: var(--space-8);
+  grid-template-columns: minmax(0, 1.5fr) minmax(260px, 1fr);
+  gap: clamp(2rem, 5vw, 4.5rem);
   align-items: center;
 }
 
-.hero-copy {
+/* ---- Copy column ---- */
+.hero-eyebrow {
   display: flex;
-  flex-direction: column;
-  gap: var(--space-5);
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-5);
 }
 
-.hero-copy h1 {
+.hero-eyebrow .rule {
+  width: 42px;
+  height: 1px;
+  background: var(--green);
+}
+
+.hero h1 {
   font-size: var(--fs-hero);
-  font-weight: 700;
-  letter-spacing: -0.025em;
-  line-height: 1.05;
-  color: var(--text);
-  margin: 0;
+  font-weight: 640;
+  line-height: var(--lh-display);
+  letter-spacing: -0.02em;
+  margin-bottom: var(--space-4);
+  max-width: 14ch;
+}
+
+.hero h1 em {
+  font-weight: 500;
+}
+
+.hero h1 .dot {
+  color: var(--green);
 }
 
 .hero-tagline {
-  font-size: 1.05rem;
-  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: var(--fs-meta);
   font-weight: 500;
-  letter-spacing: 0.005em;
-  margin: 0;
-}
-
-.hero-tagline .sep {
-  color: var(--text-faint);
-  margin: 0 0.55em;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-mono);
+  color: var(--paper-dim);
+  margin-bottom: var(--space-5);
 }
 
 .hero-lead {
-  font-size: 1rem;
-  line-height: 1.65;
-  color: var(--text-muted);
+  font-size: 1.12rem;
+  line-height: var(--lh-body);
+  color: var(--paper-dim);
   max-width: 52ch;
-  margin: 0;
+  margin-bottom: var(--space-6);
+}
+
+.hero-lead strong {
+  color: var(--paper);
+  font-weight: 550;
 }
 
 .hero-cta {
   display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-3);
-  margin-top: var(--space-2);
-}
-
-.hero-portrait {
-  display: flex;
-  justify-content: center;
   align-items: center;
+  gap: var(--space-4);
+  flex-wrap: wrap;
 }
 
-.hero-portrait img {
+/* ---- Portrait column: a "position card" ---- */
+.hero-portrait {
+  position: relative;
+}
+
+.portrait-card {
+  position: relative;
+  border: 1px solid var(--hairline-strong);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: var(--ink-2);
+  box-shadow: var(--shadow-card);
+  transform: rotate(1.2deg);
+  transition: transform var(--dur-med) var(--ease);
+}
+
+.portrait-card:hover {
+  transform: rotate(0deg) translateY(-4px);
+}
+
+.portrait-card img {
   width: 100%;
-  max-width: 360px;
-  aspect-ratio: 1 / 1.05;
+  aspect-ratio: 4 / 4.6;
   object-fit: cover;
-  border-radius: 50% / 45%;
-  background: var(--accent-soft);
-  box-shadow: var(--shadow-md);
-  border: 1px solid var(--border);
+  filter: saturate(0.92) contrast(1.04);
 }
 
-@media (max-width: 860px) {
-  .hero {
-    padding: var(--space-7) var(--space-5) var(--space-6);
+.portrait-caption {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-3);
+  padding: 0.7rem 0.9rem;
+  border-top: 1px solid var(--hairline);
+  background: var(--ink-1);
+}
+
+.portrait-caption span {
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--paper-faint);
+}
+
+.portrait-caption .up {
+  color: var(--green);
+}
+
+/* ---- Sparkline strip under the hero copy ---- */
+.hero-sparkline {
+  position: relative;
+  margin-top: var(--space-7);
+}
+
+.hero-sparkline svg {
+  width: 100%;
+  height: 72px;
+  display: block;
+  overflow: visible;
+}
+
+.hero-sparkline .spark-path {
+  fill: none;
+  stroke: var(--green);
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 1600;
+  stroke-dashoffset: 1600;
+  animation: spark-draw 3.2s var(--ease-out-expo) 0.4s forwards;
+  filter: drop-shadow(0 0 6px rgba(52, 211, 153, 0.35));
+}
+
+.hero-sparkline .spark-fill {
+  fill: url(#sparkGradient);
+  opacity: 0;
+  animation: spark-fade 1.4s var(--ease) 2.4s forwards;
+}
+
+.hero-sparkline .spark-dot {
+  fill: var(--green);
+  opacity: 0;
+  animation: spark-fade 0.6s var(--ease) 3.4s forwards;
+}
+
+.spark-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.55rem;
+}
+
+.spark-labels span {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--paper-faint);
+}
+
+.spark-labels span:last-child { color: var(--green); }
+
+@keyframes spark-draw {
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes spark-fade {
+  to { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-sparkline .spark-path {
+    stroke-dashoffset: 0;
+    animation: none;
   }
+  .hero-sparkline .spark-fill,
+  .hero-sparkline .spark-dot {
+    opacity: 1;
+    animation: none;
+  }
+}
+
+/* ---- Stats row below hero ---- */
+.hero-stats {
+  padding-block: 0;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 860px) {
   .hero-grid {
     grid-template-columns: 1fr;
-    gap: var(--space-6);
-    text-align: left;
   }
+
   .hero-portrait {
     order: -1;
-    justify-content: flex-start;
+    max-width: 300px;
   }
-  .hero-portrait img {
-    max-width: 200px;
+
+  .portrait-card {
+    transform: rotate(0.8deg);
+  }
+
+  .portrait-card img {
+    aspect-ratio: 4 / 4.1;
+  }
+
+  .hero h1 {
+    max-width: none;
   }
 }

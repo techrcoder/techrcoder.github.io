@@ -1,9 +1,13 @@
-/* Base layer — typography, body, primitives */
+/* ============================================================
+   BASE — reset, canvas, typography defaults, utilities
+   ============================================================ */
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
 
 html {
@@ -11,26 +15,33 @@ html {
 }
 
 body {
+  background-color: var(--ink-0);
+  /* faint chart-paper grid on the canvas */
+  background-image:
+    linear-gradient(rgba(237, 230, 216, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(237, 230, 216, 0.025) 1px, transparent 1px);
+  background-size: 56px 56px;
+  color: var(--paper);
   font-family: var(--font-sans);
-  background-color: var(--bg);
-  color: var(--text);
-  line-height: var(--lh-body);
   font-size: var(--fs-body);
+  line-height: var(--lh-body);
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  overflow-x: hidden;
+  text-rendering: optimizeLegibility;
+  min-height: 100vh;
 }
 
-img, picture, svg {
-  max-width: 100%;
-  display: block;
+::selection {
+  background: var(--gold);
+  color: var(--ink-0);
 }
 
-h1, h2, h3, h4 {
-  color: var(--text);
-  letter-spacing: -0.01em;
-  line-height: var(--lh-tight);
+/* ---- Headings: editorial serif ---- */
+h1, h2, h3 {
+  font-family: var(--font-display);
   font-weight: 600;
+  line-height: var(--lh-tight);
+  color: var(--paper);
+  letter-spacing: -0.01em;
 }
 
 h1 { font-size: var(--fs-h1); }
@@ -38,107 +49,104 @@ h2 { font-size: var(--fs-h2); }
 h3 { font-size: var(--fs-h3); }
 
 p {
-  color: var(--text-muted);
+  color: var(--paper-dim);
+}
+
+strong, b {
+  color: var(--paper);
+  font-weight: 600;
 }
 
 a {
-  color: var(--accent);
+  color: inherit;
   text-decoration: none;
-  transition: color var(--dur-fast) var(--ease);
 }
 
-a:hover {
-  color: var(--accent-hover);
+img {
+  max-width: 100%;
+  height: auto; /* keep width/height attrs as CLS hints without overriding CSS sizing */
+  display: block;
 }
 
 ul {
   list-style: none;
 }
 
-::selection {
-  background: var(--accent-soft);
-  color: var(--text);
+/* Serif italic emphasis — the editorial gold accent */
+em, .accent-italic {
+  font-family: var(--font-display);
+  font-style: italic;
+  color: var(--gold);
+  letter-spacing: 0;
 }
 
-/* Layout primitives */
+/* ---- Mono micro-label (used everywhere) ---- */
+.mono-label {
+  font-family: var(--font-mono);
+  font-size: var(--fs-meta);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-mono);
+  color: var(--paper-faint);
+}
+
+/* ---- Page shell ---- */
 .container {
   max-width: var(--container);
   margin: 0 auto;
-  padding-left: var(--space-6);
-  padding-right: var(--space-6);
+  padding-inline: var(--gutter);
 }
 
 .container-wide {
   max-width: var(--container-wide);
   margin: 0 auto;
-  padding-left: var(--space-6);
-  padding-right: var(--space-6);
+  padding-inline: var(--gutter);
 }
 
 .container-narrow {
   max-width: var(--container-narrow);
   margin: 0 auto;
-  padding-left: var(--space-6);
-  padding-right: var(--space-6);
+  padding-inline: var(--gutter);
 }
 
-.section {
-  padding-top: var(--space-9);
-  padding-bottom: var(--space-9);
+/* ---- Focus visibility ---- */
+:focus-visible {
+  outline: 2px solid var(--green);
+  outline-offset: 3px;
+  border-radius: 2px;
 }
 
-.section-tight {
-  padding-top: var(--space-7);
-  padding-bottom: var(--space-7);
+/* ---- Scroll reveal (activated by assets/js/site.js) ----
+   JS adds .js to <html>; without JS everything stays visible. */
+html.js .reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition:
+    opacity var(--dur-slow) var(--ease-out-expo),
+    transform var(--dur-slow) var(--ease-out-expo);
 }
 
-.section-eyebrow {
-  font-size: var(--fs-meta);
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: var(--text-faint);
-  font-weight: 500;
-  margin-bottom: var(--space-3);
+html.js .reveal.is-visible {
+  opacity: 1;
+  transform: none;
 }
 
-.section-title {
-  font-size: var(--fs-h2);
-  margin-bottom: var(--space-2);
-}
+/* stagger helpers */
+html.js .reveal-delay-1 { transition-delay: 90ms; }
+html.js .reveal-delay-2 { transition-delay: 180ms; }
+html.js .reveal-delay-3 { transition-delay: 270ms; }
 
-.section-lead {
-  color: var(--text-muted);
-  margin-bottom: var(--space-7);
-  max-width: 56ch;
-}
-
-@media (max-width: 720px) {
-  .container, .container-wide, .container-narrow {
-    padding-left: var(--space-5);
-    padding-right: var(--space-5);
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
-  .section { padding-top: var(--space-7); padding-bottom: var(--space-7); }
-}
-
-/* Animations */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(12px); }
-  to   { opacity: 1; transform: none; }
-}
-
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(24px); }
-  to   { opacity: 1; transform: none; }
-}
-
-.fade-in { animation: fadeIn 600ms var(--ease) both; }
-
-/* Footer */
-footer {
-  text-align: center;
-  padding: var(--space-6);
-  background-color: var(--surface-2);
-  color: var(--text-faint);
-  border-top: 1px solid var(--border);
-  font-size: var(--fs-small);
+  html.js .reveal {
+    opacity: 1;
+    transform: none;
+  }
 }

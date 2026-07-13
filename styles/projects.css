@@ -1,104 +1,299 @@
-/* Projects page — bright modular grid */
+/* ============================================================
+   PROJECTS — "The Lab"
+   Featured flagship card (Assisty) + a grid of smaller builds,
+   some shipped with imagery, some typographic-only.
+   ============================================================ */
 
-.projects-section {
-  padding: var(--space-8) var(--space-6) var(--space-9);
-  max-width: var(--container-wide);
-  margin: 0 auto;
-  animation: fadeIn 600ms var(--ease) both;
+/* ------------------------------------------------------------
+   Shared bits: mono index chip + status chip
+   ------------------------------------------------------------ */
+.proj-index {
+  font-family: var(--font-mono);
+  font-size: var(--fs-meta);
+  font-weight: 600;
+  letter-spacing: var(--tracking-mono);
+  color: var(--paper-faint);
 }
 
-.projects-section h1 {
-  font-size: var(--fs-h1);
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  color: var(--text);
+.proj-status {
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  border-radius: var(--radius-sm);
+  padding: 0.18rem 0.5rem;
+}
+
+.proj-status--green {
+  color: var(--green);
+  border: 1px solid var(--green-border);
+  background: var(--green-soft);
+}
+
+.proj-status--gold {
+  color: var(--gold);
+  border: 1px solid rgba(217, 164, 65, 0.4);
+  background: var(--gold-soft);
+}
+
+/* ------------------------------------------------------------
+   FEATURED PROJECT — Assisty
+   ------------------------------------------------------------ */
+.feature-project {
+  padding-block: var(--space-6) var(--space-8);
+}
+
+.feature-card {
+  display: block;
+  overflow: hidden;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr);
+  align-items: stretch;
+}
+
+.feature-copy {
+  padding: clamp(1.75rem, 4vw, 3rem);
+  display: flex;
+  flex-direction: column;
+}
+
+.feature-meta-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-5);
+}
+
+.feature-eyebrow {
+  font-family: var(--font-mono);
+  font-size: var(--fs-meta);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-mono);
+  color: var(--gold);
   margin-bottom: var(--space-2);
 }
 
-.projects-lead {
-  color: var(--text-muted);
-  margin: 0 0 var(--space-7) 0;
-  max-width: 56ch;
+.feature-copy h2 {
+  font-size: clamp(1.9rem, 3.6vw, 2.6rem);
+  margin-bottom: var(--space-4);
+}
+
+.feature-copy > p:not([class]) {
+  color: var(--paper-dim);
+  max-width: 46ch;
+}
+
+.feature-stack {
+  margin-top: var(--space-5);
+  color: var(--paper-dim);
+}
+
+.feature-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+  padding-top: var(--space-5);
+  border-top: 1px dashed var(--hairline-strong);
+}
+
+.feature-footer .feature-date {
+  font-family: var(--font-mono);
+  font-size: var(--fs-meta);
+  letter-spacing: 0.08em;
+  color: var(--paper-faint);
+}
+
+.feature-visual {
+  position: relative;
+  border-left: 1px solid var(--hairline);
+  background: var(--ink-1);
+  min-height: 320px;
+}
+
+.feature-visual img {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 3 / 3.4;
+  object-fit: cover;
+  object-position: top center;
+  filter: saturate(0.95) contrast(1.02);
+}
+
+.feature-visual-icon {
+  position: absolute;
+  left: var(--space-5);
+  bottom: var(--space-5);
+  width: 58px;
+  height: 58px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--hairline-strong);
+  box-shadow: var(--shadow-lift);
+}
+
+.feature-visual-icon img {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: auto;
+  object-fit: cover;
+}
+
+/* ------------------------------------------------------------
+   PROJECT GRID — the rest of the builds
+   ------------------------------------------------------------ */
+.projects-grid-section {
+  padding-block: 0 var(--space-8);
 }
 
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: var(--space-5);
 }
 
 .project-card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-md);
-  padding: var(--space-5);
   display: flex;
   flex-direction: column;
-  text-decoration: none;
-  color: inherit;
-  box-shadow: var(--shadow-sm);
-  transition: transform var(--dur-med) var(--ease),
-              box-shadow var(--dur-med) var(--ease),
-              border-color var(--dur-med) var(--ease);
+  overflow: hidden;
 }
 
-.project-card:hover {
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-md);
-  border-color: var(--border-strong);
+.project-card-image {
+  background: var(--ink-1);
+  border-bottom: 1px solid var(--hairline);
 }
 
-.project-card a {
-  text-decoration: none;
-  color: inherit;
-}
-
-.project-img {
+.project-card-image img {
   width: 100%;
   aspect-ratio: 16 / 10;
   object-fit: cover;
-  border-radius: var(--radius-sm);
-  background: var(--surface-2);
-  margin-bottom: var(--space-4);
-  border: 1px solid var(--border);
+  object-position: top center;
+  filter: saturate(0.95) contrast(1.02);
 }
 
-.project-card h2 {
-  font-size: 1.15rem;
-  font-weight: 600;
-  letter-spacing: -0.005em;
-  color: var(--text);
-  margin: 0 0 var(--space-2) 0;
+.project-card-body {
+  padding: var(--space-5);
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 
-.project-card p {
-  font-size: 0.93rem;
-  color: var(--text-muted);
-  line-height: 1.55;
-  margin: 0 0 var(--space-4) 0;
+/* typographic cards (no image) get a touch more breathing room */
+.project-card--type .project-card-body {
+  padding: var(--space-6) var(--space-5) var(--space-5);
+  min-height: 280px;
 }
 
-.project-link {
-  display: inline-flex;
+.project-card-meta {
+  display: flex;
   align-items: center;
-  gap: 0.4em;
-  margin-top: auto;
-  color: var(--accent);
+  justify-content: space-between;
+  margin-bottom: var(--space-4);
+}
+
+.project-card h3 {
+  font-size: 1.3rem;
+  line-height: var(--lh-tight);
+  margin-bottom: var(--space-3);
+}
+
+.project-card-body p {
   font-size: var(--fs-small);
-  font-weight: 500;
-  text-decoration: none;
-  transition: color var(--dur-fast) var(--ease);
+  line-height: 1.65;
+  color: var(--paper-dim);
+  flex: 1;
 }
 
-.project-link::after {
-  content: "→";
-  transition: transform var(--dur-fast) var(--ease);
+.project-card-tags {
+  margin-top: var(--space-4);
 }
 
-.project-link:hover {
-  color: var(--accent-hover);
+.project-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: var(--space-4);
+  padding-top: var(--space-4);
+  border-top: 1px dashed var(--hairline-strong);
 }
 
-.project-link:hover::after {
-  transform: translateX(2px);
+.project-card-date {
+  font-family: var(--font-mono);
+  font-size: var(--fs-meta);
+  letter-spacing: 0.08em;
+  color: var(--paper-faint);
+}
+
+/* ------------------------------------------------------------
+   CTA — closing GitHub prompt
+   ------------------------------------------------------------ */
+.projects-cta {
+  padding-block: var(--space-6) var(--space-9);
+  border-top: 1px dashed var(--hairline-strong);
+  max-width: 52ch;
+}
+
+.projects-cta .mono-label {
+  color: var(--green);
+  margin-bottom: var(--space-3);
+}
+
+.projects-cta h2 {
+  font-size: clamp(1.6rem, 3vw, 2.1rem);
+  margin-bottom: var(--space-3);
+}
+
+.projects-cta p {
+  color: var(--paper-dim);
+  margin-bottom: var(--space-5);
+}
+
+/* ------------------------------------------------------------
+   RESPONSIVE
+   ------------------------------------------------------------ */
+@media (max-width: 860px) {
+  .feature-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .feature-visual {
+    order: -1;
+    border-left: none;
+    border-bottom: 1px solid var(--hairline);
+    min-height: 0;
+  }
+
+  .feature-visual img {
+    aspect-ratio: 16 / 9;
+    object-position: top center;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .feature-copy {
+    padding: 1.5rem;
+  }
+
+  .feature-meta-row {
+    flex-wrap: wrap;
+    gap: var(--space-2);
+  }
+
+  .feature-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-3);
+  }
+
+  .project-card--type .project-card-body {
+    min-height: 0;
+  }
 }

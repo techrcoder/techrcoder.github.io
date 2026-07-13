@@ -4,75 +4,152 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Assisty Project Page</title>
-  <link rel="stylesheet" href="../style.css" />
+  <title>Read-Rack · Rohan Patel</title>
+  <meta name="description"
+    content="Read-Rack is Rohan Patel's vibe-coded SwiftUI reading tracker for iPhone, built with ChatGPT and Cursor between May 3 and May 11, 2025, and shipped to the App Store." />
+  <link rel="canonical" href="https://techrcoder.github.io/detail-views/read-rack.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Read-Rack · Rohan Patel" />
+  <meta property="og:description" content="Read-Rack is Rohan Patel's vibe-coded SwiftUI reading tracker for iPhone, built with ChatGPT and Cursor between May 3 and May 11, 2025, and shipped to the App Store." />
+  <meta property="og:url" content="https://techrcoder.github.io/detail-views/read-rack.html" />
+  <meta property="og:image" content="https://techrcoder.github.io/assets/images/rohan_Headshot4.jpg" />
+  <meta property="og:site_name" content="Rohan Patel" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Read-Rack · Rohan Patel" />
+  <meta name="twitter:description" content="Read-Rack is Rohan Patel's vibe-coded SwiftUI reading tracker for iPhone, built with ChatGPT and Cursor between May 3 and May 11, 2025, and shipped to the App Store." />
+  <meta name="twitter:image" content="https://techrcoder.github.io/assets/images/rohan_Headshot4.jpg" />
+  <link rel="icon"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23060809'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-style='italic' font-size='36' fill='%2334d399' text-anchor='middle'%3ER%3C/text%3E%3C/svg%3E" />
+  <link rel="stylesheet" type="text/css" href="../style.css" />
+  <script defer src="../assets/js/site.js"></script>
 </head>
 
 <body>
-  <header>
-    <a href="../index.html" class="logo">R.P.</a>
-    <nav>
-      <ul>
-        <li><a href="../index.html">Home</a></li>
-        <li><a href="../experience.html">Experience</a></li>
-        <li><a href="../projects.html"><b>Projects</b></a></li>
-        <li><a href="../photography.html">Photography</a></li>
-        <li><a href="../journal.html">Journal</a></li>
-      </ul>
-    </nav>
+
+  <!-- ═══════════════ TICKER ═══════════════ -->
+  <div class="ticker" aria-label="Career highlights ticker">
+    <div class="ticker-track">
+      <span class="ticker-item">Capstone Investment Advisors · Summer Analyst · NYC <i class="up">▲</i></span>
+      <span class="ticker-item">USC Marshall × Viterbi · B.S. AI for Business</span>
+      <span class="ticker-item">Trojan Venture Partners · Executive Board</span>
+      <span class="ticker-item">Assisty · Full Release Winter 2026 <i class="up">▲</i></span>
+      <span class="ticker-item">Bank of Ireland · IB Summer Analyst · Paris '23 · '25</span>
+      <span class="ticker-item">Altheros Capital · Private Equity Intern · LA '25</span>
+      <span class="ticker-item">Read-Rack · Idea → App Store in 8 Days <i class="up">▲</i></span>
+      <span class="ticker-item">Trojan Investing Society · Leaders Program</span>
+      <span class="ticker-item">Eagle Scout · Troop 112 Paris</span>
+      <span class="ticker-item">EN / FR / ES / GU</span>
+    </div>
+  </div>
+
+  <!-- ═══════════════ NAV ═══════════════ -->
+  <header class="site-nav">
+    <div class="nav-inner container-wide">
+      <a href="../index.html" class="logo">R<span>.</span>P<span>.</span></a>
+      <nav aria-label="Primary">
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../experience.html">Experience</a></li>
+          <li><a href="../projects.html" class="active">Projects</a></li>
+          <li><a href="../photography.html">Photography</a></li>
+          <li><a href="../journal.html">Journal</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
-  <main class="detail-container">
-    <article class="detail-article">
-      <h1>Vibe-Coding Proj #1: Read-Rack for iPhone</h1>
-      <!-- <p class="detail-subhead">Designed and developed an intelligent productivity app for the iPhone, iPad, & Mac. Assisty, built on SwiftUI, blends Natural Language Processing, Regression, and self-correcting algorithms to learn user habits. Launched beta last year; full release set for Winter/Spring 2026.</p> -->
+  <main>
+    <div class="detail-container">
 
-      <section class="detail-tagsArea">
-        <span class="detail-date">May 2025 (~1 week from design to MVP to release.)</span>
-        <span class="tag"> Coding Project </span>
-        <span class="tag"> Hobby Work </span>
-      </section>
+      <a href="../projects.html" class="detail-breadcrumb mono-label">← Projects / Read-Rack</a>
 
-      <div class="detail-body">
-        <p>Read-Rack was an entirely vibe-coded app using ChatGPT & Cursor, between May 3rd and May 11th, 2025. </p>
-        <p>It was designed to be a simple, easy-to-use app that allows users to track their reading progress and manage
-          their reading lists. The app was built on the SwiftUI and Core Data native frameworks, and it features a clean
-          and modern user interface.</p>
-        <p>Read-Rack allows users to create and manage their reading lists, track their reading progress, and set
-          reading goals. The app also includes a built-in timer that helps users stay focused while reading.</p>
+      <header class="detail-head reveal">
+        <h1>Read-Rack</h1>
+        <div class="detail-meta">
+          <span class="detail-meta-date">May 3–11, 2025</span>
+          <span class="status-chip status-chip--live">Shipped</span>
+          <div class="detail-tags">
+            <span class="tag tag--green">SwiftUI</span>
+            <span class="tag">Core Data</span>
+            <span class="tag">Vibe-Coded</span>
+          </div>
+        </div>
+      </header>
+
+      <div class="detail-body reveal">
+        <p class="detail-subhead">
+          A reading tracker for iPhone, entirely vibe-coded with ChatGPT and Cursor: idea to App Store
+          in about a week.
+        </p>
+
+        <p>
+          Read-Rack was designed to be a simple, easy-to-use app that helps readers track their
+          progress and manage their reading lists. It's built on the native SwiftUI and Core Data
+          frameworks, with a clean, modern interface.
+        </p>
+
+        <p>
+          Users can create and manage reading lists, track progress book by book, and set reading
+          goals. The app also includes a built-in timer to help readers stay focused during a session.
+        </p>
       </div>
 
-      <a href="https://apps.apple.com/us/app/read-rack/id6745011653" target="_blank" rel="noopener" class="callout">
-        <img src="../assets/images/ReadRackIcon.png" alt="Read-Rack icon" class="callout-icon" />
-        <div class="callout-body">
+      <a href="https://apps.apple.com/us/app/read-rack/id6745011653" target="_blank" rel="noopener"
+        class="card detail-callout reveal">
+        <img loading="lazy" decoding="async" width="512" height="512" src="../assets/images/ReadRackIcon.png" alt="Read-Rack app icon" class="detail-callout-icon" />
+        <div class="detail-callout-body">
           <h3>Download Read-Rack</h3>
           <p>Available on the App Store, designed for iPhone.</p>
         </div>
-        <span class="callout-arrow" aria-hidden="true">↗</span>
+        <span class="card-arrow">↗</span>
       </a>
 
       <h2>Development Links</h2>
-      <div class="tag-list">
-        <a href="https://github.com/techrcoder/Read-Rack" target="_blank" rel="noopener" class="tag tag-link">GitHub Repo</a>
-        <a href="https://chatgpt.com/share/6827ca7b-e43c-8006-aabf-cef653e6dbef" target="_blank" rel="noopener" class="tag tag-link">Vibe-Coding Dialogues</a>
+      <div class="detail-linklist">
+        <a href="https://github.com/techrcoder/Read-Rack" target="_blank" rel="noopener" class="tag tag-link">GitHub
+          Repo</a>
+        <a href="https://chatgpt.com/share/6827ca7b-e43c-8006-aabf-cef653e6dbef" target="_blank" rel="noopener"
+          class="tag tag-link">Vibe-Coding Dialogues</a>
       </div>
 
-      <hr class="dashed" />
+      <hr class="detail-divider" />
 
       <h2>Related Journal Entry</h2>
-      <a href="../journal-articles/may-3-read-rack-launch.html" class="related-link">
-        <span class="date">May 3rd, 2025</span>
+      <a href="../journal-articles/may-3-read-rack-launch.html" class="card detail-related">
+        <span class="mono-label">May 3, 2025</span>
         <h4>New App on the App Store!</h4>
-        <p>Read-Rack goes public — the launch story.</p>
+        <p>Read-Rack goes public. The launch story.</p>
       </a>
 
-      <a href="../projects.html" class="project-link">Return to Projects</a>
-    </article>
+      <div class="detail-foot">
+        <a href="../projects.html" class="detail-back-link">
+          Back to Projects <span class="card-arrow">↗</span>
+        </a>
+      </div>
+
+    </div>
   </main>
 
-  <footer>
-    <p>&copy; 2025 Rohan Patel</p>
+  <!-- ═══════════════ FOOTER ═══════════════ -->
+  <footer class="site-footer">
+    <div class="container-wide">
+      <div class="footer-grid">
+        <span class="footer-name">Rohan Patel</span>
+        <div class="footer-links">
+          <a href="https://www.linkedin.com/in/rohanp1/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://github.com/techrcoder" target="_blank" rel="noopener">GitHub</a>
+          <a href="mailto:rbpatel@usc.edu">Email</a>
+        </div>
+      </div>
+      <div class="footer-colophon">
+        <p>Designed and built by hand. No template.</p>
+        <p>Los Angeles · Paris · New York</p>
+        <p>© 2026 Rohan Patel</p>
+      </div>
+      <p class="footer-tape">· · · END OF TAPE · · ·</p>
+    </div>
   </footer>
+
 </body>
 
 </html>

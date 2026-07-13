@@ -1,172 +1,114 @@
-# Website Design & Restructure Plan
+# Design System — "Signal & Ledger"
 
-## Goals
+A market-terminal × editorial visual system. It signals both sides of Rohan's profile at once:
+the **finance track** (hedge fund / VC / PE / IB exposure — Capstone, Bank of Ireland LAF, TVP, TIS)
+and the **AI/builder track** (AI for Business, Assisty, Read-Rack, LLM tooling).
 
-This site needs to do two things simultaneously:
-1. Signal professional credibility to finance recruiters (clean, substantive, easy to navigate to experience)
-2. Show the full picture — hobbies, photography, personal projects, personality
-
-The current structure blurs both goals because content is duplicated and the pages don't have distinct enough purposes.
-
----
-
-## Page Structure (Target State)
-
-### Current Nav
-`Home | My Feed | Software Portfolio | Photography | Contact`
-
-### Target Nav
-`Home | Experience | Projects | Photography | Journal`
-
-| Old | New | Why |
-|---|---|---|
-| Home | Home | Stays, hero section refined |
-| My Feed | Journal | Renamed + scoped to personal writing only |
-| Software Portfolio | Projects | Rename for clarity |
-| *(missing)* | Experience | New dedicated page for finance recruiters |
-| Photography | Photography | Unchanged |
+The metaphor: a premium financial publication typeset on a trading terminal.
+Editorial serif headlines over an ink-dark canvas, with monospace "market data" accents.
 
 ---
 
-## Page-by-Page Changes
+## Goals (unchanged from previous iterations)
 
-### Home (`index.html`)
-
-**Hero section** — keep as-is. The headshot + bio + quick-link tags work well.
-
-**"What I'm Up to Now" section** — major refactor:
-- **Max 3 entries at any time.** This is a live status board, not a timeline.
-- **Entry types allowed:** current role/school, active project being built, current intellectual pursuit (book, idea, research area)
-- **Entry types NOT allowed:** blog post links, past reflections, event recaps — those belong in Journal
-- **When something ends, remove or archive it** — don't let entries accumulate
-- Left/right alternating card layout is good, keep it
-- Remove the "See All Time ›" link pointing to feed — Journal has its own nav entry
-
-**What each Now entry should contain:**
-- Title: present-tense state ("Building Assisty", "Interning at Capstone", "Studying at USC")
-- 2–3 sentence description of what you're doing and why it matters to you
-- Date range (ongoing preferred: "June 2025 – Present")
-- Tags: category only, no "Blog Post" or "Personal Reflections" tags
-- Optional: link to a detail view page
-
-**Current entries to keep in Now:**
-- USC / AI for Business (Education, Finance, AI/Strategy)
-- Capstone Investment Advisors internship (Finance, Professional Experience)
-- Assisty (Coding, Projects, AI/ML)
-
-**Current entries to move to Journal:**
-- "Wrapping up IB, looking ahead" → this is a reflection/event, belongs in Journal
-- "What am I reading?" → move to Journal as a short reading note entry
+1. Signal professional credibility to finance recruiters (clean, substantive, easy to reach Experience)
+2. Show the full picture — projects, photography, journal, personality
 
 ---
 
-### Experience (`experience.html`) — New Page
+## Core Tokens (`styles/tokens.css` is the single source of truth)
 
-Finance recruiters need one place to see professional and academic depth. Currently this lives scattered across detail-view cards and the Now section.
+| Role | Token | Value | Notes |
+|---|---|---|---|
+| Canvas | `--ink-0` | `#060809` | page background + faint chart-grid texture |
+| Band | `--ink-1` | `#0b0f12` | ticker, footer, alternate sections |
+| Surface | `--ink-2` | `#10161b` | cards |
+| Elevated | `--ink-3` | `#182029` | card hover |
+| Text | `--paper` | `#ede6d8` | warm ivory — never pure white |
+| Muted | `--paper-dim` | `#a9a498` | body text |
+| Faint | `--paper-faint` | `#737065` | mono micro-labels ONLY (too low-contrast for body) |
+| Accent | `--green` | `#34d399` | market green: up-ticks, links, live states, active nav |
+| Accent 2 | `--gold` | `#d9a441` | editorial gold: `<em>` serif italics, pull-quote rule |
+| Hairlines | `--hairline` / `--hairline-strong` | 10% / 24% ivory | all borders |
 
-**Sections:**
-1. **Finance & Professional** — internships (Bank of Ireland, Capstone), leadership roles (Trojan Investing Society, Trojan Venture Partners, Marshall AI Association Finance team)
-2. **Education** — USC AI for Business joint degree
-3. **Skills & Tools** — languages, financial modeling, relevant tech
+**Typography**
+- Display: **Fraunces** (variable, optical sizing) — all h1/h2/h3, footer name, stat values, detail-view body prose
+- Body/UI: **Inter**
+- Data: **IBM Plex Mono** — every label, date, tag, nav link, ticker item, status chip (uppercase + `--tracking-mono`)
+- `<em>` renders as gold Fraunces italic — the signature emphasis. Use on 1–2 words max per headline.
 
-Each item should link to its detail-view page where one exists. Layout: clean vertical timeline or card list, not the alternating now-entry layout.
-
----
-
-### Projects (`projects.html`)
-
-Keep existing content. Rename from "Software Portfolio" to "Projects" in the nav.
-
-Consider adding a short intro line: something like "Things I've built at the intersection of AI, design, and utility."
-
----
-
-### Photography (`photography.html`)
-
-No structural changes needed. This page is working.
+**Fonts load via `style.css` @imports** (rsms Inter + Google Fonts Fraunces/IBM Plex Mono).
 
 ---
 
-### Journal (`feed.html` → `journal.html`)
+## Signature Components (`styles/components.css`)
 
-**Purpose:** personal writing, dated entries, chronological. Reflections, project launches, trip notes, things observed. Short or long. More honest, less polished than the rest of the site.
+- **Ticker** — thin marquee strip at the very top of every page; mono uppercase "positions"
+  (`.ticker > .ticker-track > .ticker-item`, ▲ in `.up`). JS duplicates the track for a seamless loop;
+  paused on hover; disabled under `prefers-reduced-motion`. Same items on every page.
+- **Section head** — `.section-head`: mono green index (`01 —`), serif title, right-aligned mono note,
+  hairline rule. Section names carry the motif: Current Positions / Track Record / The Lab / Field Notes / The Ledger.
+- **Cards** — `.card`: ink-2 surface, hairline border, hover lift + green corner crop-marks + `.card-arrow` ↗.
+- **Status chips** — `.now-card-meta .status` (CURRENT) and similar mono chips (IN PROGRESS, SHIPPED, BETA LIVE).
+- **Stat row** — `.stat-row`/`.stat`: serif figures + mono keys with hairline separators.
+- **Pull quote** — `.pull-quote`: gold left rule, italic Fraunces, mono cite.
+- **Footer** — italic serif name, mono links with ↗, colophon, and the `· · · END OF TAPE · · ·` line.
+- **Reveal** — `.reveal` (+ `.reveal-delay-1/2/3`) scroll-in via `assets/js/site.js` IntersectionObserver.
+  No-JS and reduced-motion safe (content always visible without JS).
 
-**Changes from current Feed:**
-- Rename file to `journal.html`, update all internal links
-- Remove the highlighted article hero block (it duplicates Now section logic)
-- Remove grid/list toggle — keep list view only, it reads better for writing
-- Entries should never duplicate what's currently in the Now section; they can *follow up on* or *reflect on* things that were in Now
+## Page Modules
 
-**Entry types that belong here:**
-- End-of-IB reflection ✓
-- Assisty beta launch ✓
-- ReadRack App Store launch ✓
-- What I'm reading (as short notes)
-- Travel/life moments
-- Ideas and observations
-- Project post-mortems
+One CSS file per page area, imported by `style.css`:
+`hero.css` `now.css` `links.css` (home) · `experience.css` · `projects.css` · `photography.css` ·
+`feed.css` (journal) · `detail-views.css` (dossier template shared by detail views + journal articles).
 
----
-
-### Detail Views (`Detail-Views/`)
-
-Keep the existing pattern. Each significant project or experience gets a detail-view page.
-
-Files to create when not yet existing:
-- `detailView-capstone.html` — Capstone internship
-- `detailView-readRack.html` — ReadRack (already exists as `detailView-readRackProj.html`)
+Homepage extras: animated SVG **sparkline** (career trajectory with mono era labels) and the
+**portrait card** (mono caption "FIG. 01 / NYC · SUMMER 2026") — slight rotation, straightens on hover.
 
 ---
 
-## Content Rules (Separation Logic)
+## Content Voice Rules (as important as the visual rules)
 
-The single most important rule for keeping this site maintainable:
+Rohan's direction, July 2026 — these override any visual instinct:
 
-> **If it's a state → Now section.**
-> **If it's an event or reflection → Journal.**
+1. **No em dashes anywhere user-facing.** Prose uses commas/colons/periods; mono data labels
+   use `·` or `/`; date ranges use en dashes (`Jun–Aug 2026`). Docs like this one are exempt.
+2. **Show, don't tell.** State roles, firms, cities, dates and let the reader conclude the
+   identity. Never self-label ("The Analyst") or run slogan headlines ("Fluent in markets &
+   machines"). The homepage H1 is his name, nothing else.
+3. **Recruiter scan first.** Name → degree/year → current role → resume within one screen.
+   Evidence (past roles) beats aspiration (thesis quotes) on the homepage.
+4. **Wit stays micro.** Small mono corners only: `END OF TAPE`, status chips, ticker up-ticks.
+   Never in headlines or leads. (Post-council, July 2026: "OUTLOOK: LONG" was retired as too
+   self-narrated for the HF/IB/PE reader; keep the dial at or below the current level.)
+5. **No AI-tell patterns** in copy: no "not just X, it's Y", no rhetorical triplets, no empty
+   intensifiers (deeply/truly/seamlessly), no LLM verbs (leverage/delve/foster/harness).
+   Journal articles are Rohan's own writing: punctuation fixes only, never reword.
 
-| Content | Where it goes |
-|---|---|
-| "I'm currently interning at X" | Now |
-| "I'm taking a course in Y" | Now |
-| "I'm building Z right now" | Now |
-| "I launched a beta this week" | Journal |
-| "I finished my IB exams" | Journal |
-| "Here's what I've been thinking about lately" | Journal |
-| "Trip recap / photo set" | Journal (link to Photography) |
-| "My internship at X" (full history) | Experience + Detail View |
+## Rules to Preserve
 
----
-
-## Design System — What to Preserve
-
-The existing visual design is good. Don't change:
-- Dark background palette (`#1a1f1e`, `#232723`, `#181b18`)
-- Warm cream/tan text colors (`#e6ddca`, `#bbb4a4`, `#c9b79d`)
-- Tag component style (rounded pill, green tones)
-- Entry date style (dashed border, mint green)
-- Fade-in animations
-- Card hover effects (translateY + shadow)
-- Left/right alternating Now entries
-
-**Typography** — consider upgrading from `Segoe UI` to a system stack that includes a serif option for Journal body text. Body writing reads better in a slightly warmer serif.
+- Dark canvas + ivory type. Never hardcode colors in page modules — tokens only.
+- Mono labels are always uppercase with `--tracking-mono`; dates in mono.
+- Hover affordance on link-cards = lift + green ↗. Active nav = green + underline.
+- Detail-view/article body text is serif (Fraunces); everything else Inter.
+- No emoji in page content. No pure white, no pure black.
+- Finance motifs stay *tasteful*: chips, indices, ticks — never gimmicky charts for their own sake.
+- Every page carries ticker + nav + footer identically (adjust `../` prefixes in subdirectories).
+- Accessibility: single h1/page, `aria-label` on nav, alt text everywhere, reduced-motion coverage
+  for every infinite animation, `:focus-visible` outlines.
 
 ---
 
-## Implementation Order
+## Content Architecture (unchanged)
 
-1. Create `AGENT_RULES.md` and `DESIGN.md` (this file) — **done**
-2. Create `experience.html` with finance/professional content
-3. Refactor `index.html` Now section — remove blog-post entries, enforce 3-entry max
-4. Rename `feed.html` → `journal.html`, update all links, remove highlight hero
-5. Update nav across all pages
-6. Create `detailView-capstone.html`
-7. Ongoing: add Journal entries as events happen using agent rules
+> **If it's a state → Now section ("Current Positions").**
+> **If it's an event or reflection → Journal ("The Ledger").**
 
----
+- Home: hero + max-3 Current Positions + "Previously" track-record strip + connect
+- Experience: recruiter-facing track record (timeline), education, skills
+- Projects: featured Assisty + project grid with status chips
+- Photography: jigsaw gallery ("Field Notes")
+- Journal: dated ledger rows, most recent first
+- Detail views (`detail-views/`) + journal articles (`journal-articles/`) share the dossier template
 
-## Future Considerations
-
-- **Resume sync:** experience.html should mirror (not duplicate) the resume. When the resume updates, experience.html should update too.
-- **Photography integration:** Journal entries about travel should be able to embed photos from Photography-Assets or link to photography.html sections.
-- **Mobile:** the alternating left/right Now layout stacks well on mobile already. Journal list view will too.
+See `AGENT_RULES.md` for how agents should apply content updates.

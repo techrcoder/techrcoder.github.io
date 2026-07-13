@@ -1,19 +1,23 @@
-/* Root stylesheet — imports the design system in order:
-   tokens → base → components → layout primitives → page modules */
+/* ============================================================
+   ROOT STYLESHEET — "Signal & Ledger" design system
+   Import order: fonts → tokens → base → shared components →
+   page modules. See DESIGN.md for the system rationale.
+   ============================================================ */
 
 @import url("https://rsms.me/inter/inter.css");
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&display=swap");
 
 @import "styles/tokens.css";
 @import "styles/base.css";
 @import "styles/components.css";
-
 @import "styles/nav-bar.css";
+
+/* page modules */
 @import "styles/hero.css";
 @import "styles/now.css";
+@import "styles/links.css";
+@import "styles/experience.css";
 @import "styles/projects.css";
 @import "styles/photography.css";
 @import "styles/feed.css";
-@import "styles/experience.css";
 @import "styles/detail-views.css";
-@import "styles/links.css";
-@import "styles/contact.css";

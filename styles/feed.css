@@ -1,144 +1,153 @@
-/* Journal page — softer editorial reading list */
+/* ============================================================
+   FEED — "The Ledger" journal page.
+   Dated entries styled as horizontal ledger lines: thumbnail
+   left, mono date chip + serif title + teaser + tags right.
+   Fully clickable rows carry the shared .card-arrow up-tick.
+   ============================================================ */
 
-.journal-section {
-  padding: var(--space-8) var(--space-6) var(--space-9);
-  max-width: var(--container);
-  margin: 0 auto;
-  animation: fadeIn 600ms var(--ease) both;
-}
-
-.journal-header {
-  margin-bottom: var(--space-7);
-}
-
-.journal-header h1 {
-  font-size: var(--fs-h1);
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  color: var(--text);
-  margin-bottom: var(--space-2);
-}
-
-.journal-header p {
-  color: var(--text-muted);
-  font-size: 1rem;
-  max-width: 56ch;
-  margin: 0;
+.feed-section {
+  padding-block: var(--space-2) var(--space-9);
 }
 
 .feed-articles {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-3);
+  border-top: 1px solid var(--hairline-strong);
+  margin-top: var(--space-2);
 }
 
+/* ---- Row ---- */
 .feed-article {
   display: flex;
   align-items: center;
-  gap: var(--space-5);
-  padding: var(--space-5);
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-sm);
-  transition: transform var(--dur-med) var(--ease),
-              box-shadow var(--dur-med) var(--ease),
-              border-color var(--dur-med) var(--ease);
+  gap: var(--space-6);
+  padding: var(--space-6) var(--gutter);
+  margin-inline: calc(var(--gutter) * -1);
+  border-bottom: 1px dashed var(--hairline);
+  transition:
+    background var(--dur-med) var(--ease),
+    border-color var(--dur-med) var(--ease);
 }
 
-.feed-article:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
-  border-color: var(--border-strong);
+.feed-article:last-child {
+  border-bottom: 1px solid var(--hairline-strong);
+}
+
+a.feed-article:hover {
+  background: var(--ink-2);
+  border-color: var(--hairline-strong);
+}
+
+a.feed-article:hover .feed-article-img {
+  transform: scale(1.045);
+}
+
+a.feed-article:hover h3 {
+  color: var(--green);
+}
+
+/* ---- Thumbnail ---- */
+.feed-article-media {
+  flex: 0 0 148px;
+  width: 148px;
+  height: 100px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--hairline);
+  background: var(--ink-2);
+  overflow: hidden;
 }
 
 .feed-article-img {
-  flex-shrink: 0;
-  width: 140px;
-  height: 140px;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  border-radius: var(--radius-md);
-  background: var(--surface-2);
-  border: 1px solid var(--border);
+  transition: transform var(--dur-slow) var(--ease-out-expo);
+}
+
+/* icon-style thumbnails: contained + padded on ink-2, not cropped */
+.feed-article-media--icon {
+  padding: var(--space-4);
 }
 
 .feed-article-img--icon {
   object-fit: contain;
-  padding: 14px;
-  background: var(--surface-2);
 }
 
+/* ---- Content ---- */
 .feed-article-content {
-  flex: 1;
+  flex: 1 1 auto;
   min-width: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: var(--space-2);
-}
-
-.feed-article-content h3 {
-  font-size: 1.2rem;
-  font-weight: 600;
-  letter-spacing: -0.005em;
-  color: var(--text);
-  margin: 0;
-  font-family: var(--font-serif);
-  line-height: 1.25;
-}
-
-.feed-article-content p {
-  font-size: 0.95rem;
-  line-height: 1.6;
-  color: var(--text-muted);
-  margin: 0;
 }
 
 .feed-date {
-  display: inline-block;
-  font-size: var(--fs-meta);
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
-  color: var(--text-faint);
-  background: transparent;
-  border: 0;
-  padding: 0;
-  margin: 0;
+  display: inline-flex;
+  align-items: center;
+  color: var(--green);
+  background: var(--green-soft);
+  border: 1px solid var(--green-border);
+  border-radius: var(--radius-sm);
+  padding: 0.2rem 0.55rem;
+  margin-bottom: var(--space-3);
 }
 
-.feed-article-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-2);
-  margin-top: var(--space-2);
-}
-
-.feed-article-link {
-  text-decoration: none;
-  color: inherit;
+.feed-article-content h3 {
+  font-size: 1.32rem;
+  line-height: var(--lh-tight);
+  margin-bottom: var(--space-2);
   transition: color var(--dur-fast) var(--ease);
 }
 
-.feed-article-link:hover h3 {
-  color: var(--accent);
+.feed-article-content p {
+  font-size: var(--fs-small);
+  line-height: 1.65;
+  max-width: 62ch;
 }
 
-.feed-article-link:focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: 3px;
-  border-radius: var(--radius-sm);
+.feed-article-tags {
+  margin-top: var(--space-4);
 }
 
-@media (max-width: 540px) {
+/* ---- Arrow (reuses shared .card-arrow visuals) ---- */
+.feed-article-arrow {
+  flex: 0 0 auto;
+  font-size: 1.2rem;
+  align-self: center;
+}
+
+/* ------------------------------------------------------------
+   RESPONSIVE
+   ------------------------------------------------------------ */
+@media (max-width: 860px) {
   .feed-article {
-    flex-direction: column;
-    align-items: stretch;
-    gap: var(--space-4);
-    padding: var(--space-4);
+    gap: var(--space-5);
   }
-  .feed-article-img {
+
+  .feed-article-media {
+    flex-basis: 116px;
+    width: 116px;
+    height: 84px;
+  }
+
+  .feed-article-content h3 {
+    font-size: 1.18rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .feed-article {
+    flex-wrap: wrap;
+    padding-block: var(--space-5);
+  }
+
+  .feed-article-media {
+    flex-basis: 100%;
     width: 100%;
-    height: 180px;
+    height: 168px;
+  }
+
+  .feed-article-arrow {
+    display: none;
+  }
+
+  .feed-article-content p {
+    max-width: none;
   }
 }
